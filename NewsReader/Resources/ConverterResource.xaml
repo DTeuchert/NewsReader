@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:NewsReader.Converter">
+
+    <converter:ListBoxVisibilityConverter x:Key="ListBoxVisibilityConverter" />
+    
+    <converter:DateTimeFormatConverter x:Key="DateTimeFormatConverter" />
+    <converter:SelectedItemIsEnableConverter x:Key="SelectedItemIsEnableConverter" />
+    <converter:BooleanVisibilityConverter x:Key="BooleanVisibilityConverter" />
+    <converter:SelectedItemVisivilityConverter x:Key="SelectedItemVisivilityConverter" />
+    <converter:BackgroundHasSeenConverter x:Key="BackgroundHasSeenConverter" />
+    <converter:ColorIsMarkedConverter x:Key="ColorIsMarkedConverter" />
+
+    <converter:FeedSportListConverter x:Key="FeedSportListConverter" />
+    <converter:FeedTechnologyListConverter x:Key="FeedTechnologyListConverter" />
+    <converter:FeedHealthListConverter x:Key="FeedHealthListConverter" />
+    <converter:FeedEconomyListConverter x:Key="FeedEconomyListConverter" />
+    <converter:FeedCareerListConverter x:Key="FeedCareerListConverter" />
+    <converter:FeedInternationalListConverter x:Key="FeedInternationalListConverter" />
+    <converter:FeedPoliticsListConverter x:Key="FeedPoliticsListConverter" />
+    <converter:FeedCulturalListConverter x:Key="FeedCulturalListConverter" />
+
+    <converter:CountGeneralListVisibilityConverter x:Key="CountGeneralListVisibilityConverter" />
+    <converter:CountSportListVisibilityConverter x:Key="CountSportListVisibilityConverter" />
+    <converter:CountTechnologyListVisibilityConverter x:Key="CountTechnologyListVisibilityConverter" />
+    <converter:CountHealthListVisibilityConverter x:Key="CountHealthListVisibilityConverter" />
+    <converter:CountEconomyListVisibilityConverter x:Key="CountEconomyListVisibilityConverter" />
+    <converter:CountCareerListVisibilityConverter x:Key="CountCareerListVisibilityConverter" />
+    <converter:CountInternationalListVisibilityConverter x:Key="CountInternationalListVisibilityConverter" />
+    <converter:CountPoliticsListVisibilityConverter x:Key="CountPoliticsListVisibilityConverter" />
+    <converter:CountCulturalListVisibilityConverter x:Key="CountCulturalListVisibilityConverter" />
+
+
+</ResourceDictionary>

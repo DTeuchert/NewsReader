@@ -1,0 +1,73 @@
+﻿<Window x:Class="NewsReader.View.RssLinkAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{StaticResource ApplicationBackgroundColor}"
+        Title="NewsReader" Height="200" Width="500">
+    <Window.Icon>
+        <DrawingImage>
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <DrawingGroup.Children>
+                        <GeometryDrawing Brush="{StaticResource IconColor}" 
+                                         Geometry="M30.582001,39.552998L30.582001,42.894001 49.721001,42.894001 49.721001,39.552998z M30.582001,34.034L30.582001,37.071999 49.721001,37.071999 49.721001,34.034z M7.4939995,28.125999L7.4939995,42.776001 25.316,42.776001 25.316,28.125999z M30.582001,28.009001L30.582001,31.655001 49.721001,31.655001 49.721001,28.009001z M7.3920002,16.245001L7.3920002,22.927999 44.556999,22.927999 44.556999,16.245001z M7.3920002,7.0550003L7.3920002,13.536 49.924,13.536 49.924,7.0550003z M0,0L58.733997,0 58.633785,6.0760002 64,6.0760002 57.923878,49.146996 57.923416,49.146305 57.923405,49.146999 0,49.146999z" />
+                    </DrawingGroup.Children>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+    </Window.Icon>
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Viewbox Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
+               Margin="20,0"
+               Width="32" Height="32">
+            <Path Data="M24.52501,16.128025C23.931993,16.128025,23.451005,16.608006,23.451005,17.202978L23.451005,19.352032 21.259997,19.352032C20.642993,19.352032 20.144,19.852033 20.144,20.467025 20.144,21.08397 20.642993,21.583971 21.259997,21.583971L23.451005,21.583971 23.451005,23.980949C23.451005,24.574945 23.931993,25.057979 24.52501,25.057979 25.120987,25.057979 25.599991,24.574945 25.599991,23.980949L25.599991,21.583971 27.874985,21.583971C28.490981,21.583971 28.990981,21.08397 28.990981,20.467025 28.990981,19.852033 28.490981,19.352032 27.874985,19.352032L25.599991,19.352032 25.599991,17.202978C25.599991,16.608006,25.120987,16.128025,24.52501,16.128025z M24.520005,13.826993C28.147994,13.826993 31.091993,16.767919 31.091993,20.397933 31.091993,24.025017 28.147994,26.968994 24.520005,26.968994 20.891009,26.968994 17.948994,24.025017 17.948993,20.397933 17.948994,16.767919 20.891009,13.826993 24.520005,13.826993z M7.7990189,6.433979C7.7620192,6.433979,7.731019,6.447979,7.6970186,6.4529791L7.4890184,6.4529791 7.4890184,6.4979787C7.2260189,6.6099787 7.0410185,6.8519778 7.0410185,7.1379766 7.0410185,7.5259757 7.3800192,7.8409743 7.7990189,7.8409743L14.701019,7.8409743C15.119019,7.8409743 15.457019,7.5259757 15.457019,7.1379766 15.457019,6.7479782 15.119019,6.433979 14.701019,6.433979z M0,3.9819336L3.7690182,3.9819336 3.7690182,6.8689466 3.7690182,9.1569562 3.7690182,17.330992C3.7690182,18.282996 2.9250145,18.666997 1.8850098,18.666997 0.84500504,18.666997 0,17.894994 0,16.94299L0,9.1569562 0,6.8689466z M7.4100189,3.4149885L7.4100189,3.4789886C7.1280184,3.5869884 6.929019,3.8469877 6.929019,4.1549864 6.929019,4.5579853 7.2760191,4.884984 7.7040186,4.884984L14.767019,4.884984C15.195019,4.884984 15.541018,4.5579853 15.541018,4.1549864 15.541018,3.7489882 15.195019,3.4219885 14.767019,3.4219885L14.376019,3.4219885 14.376019,3.4149885z M5.2330189,0L20.548019,0 20.552018,12.824959C18.364019,13.791955,16.799019,15.865948,16.509018,18.33594L5.2330189,18.33594z" 
+                  Stretch="Uniform" Width="48" Height="48" RenderTransformOrigin="0.5,0.5" 
+                  Fill="{StaticResource IconColor}" />
+        </Viewbox>
+        
+        <Label Grid.Column="1" Grid.Row="0"
+               Foreground="{StaticResource ApplicationForgroundColor}"
+               Content="Fügen Sie hier bitte den Link zum RSS-Feed hinzu:" />
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock Text="Titel:"/>
+
+            <TextBox Name="newLinkTextBox_Titel"
+                 Grid.Column="1" Grid.Row="1"
+                 MinWidth="250"
+                 ToolTipService.ToolTip="Titel eingeben"/>
+
+            <TextBlock Text="Link:"/>
+
+            <TextBox Name="newLinkTextBox_Link"
+                 Grid.Column="1" Grid.Row="1"
+                 MinWidth="250"
+                 ToolTipService.ToolTip="Link eingeben"/>
+        </StackPanel>
+        
+        
+
+        <WrapPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                   Margin="0,15,0,0"
+                   HorizontalAlignment="Right">
+            <Button Style="{StaticResource WindowButtonStyle}"
+                    IsDefault="True"
+                    Content="Hinzufügen"
+                    ToolTipService.ToolTip="RSS-Feed hinzufügen"
+                    Click="btnDialogAdd_Click"/>
+            <Button Style="{StaticResource WindowButtonStyle}"
+                    IsCancel="True"
+                    Content="Abbrechen"
+                    ToolTipService.ToolTip="Vorgang abbrechen"/>
+        </WrapPanel>
+    </Grid>
+</Window>

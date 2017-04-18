@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="NewsReader.View.ConfigurationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+	
+    <Grid Background="{StaticResource ApplicationBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0"  
+               Foreground="{StaticResource ApplicationForgroundColor}" FontSize="21"
+               Content="{DynamicResource settings}"/>
+
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"  
+                   Foreground="{StaticResource ApplicationForgroundColor}" FontSize="16" 
+                   Content="RSS-Feeds"/>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0"  Padding="3"
+                        ToolTipService.ToolTip="RSS-Feed hinzufügen"
+                        Command="{Binding AddRssLinkCommand}" >
+                    <Viewbox>
+                        <Grid>
+                            <Grid Width="256" Height="256" Visibility="Visible">
+                                <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" 
+                                      Stretch="Fill" Fill="{StaticResource IconColor}" Visibility="Visible" />
+                            </Grid>
+                            <Path Data="M116.985618665814,0L181.145370557904,0 181.145370557904,121.251022338867 298.130981519818,121.251022338867 298.130981519818,187.749847412109 181.145370557904,187.749847412109 181.145370557904,309 116.985618665814,309 116.985618665814,187.749847412109 0,187.749847412109 0,121.251022338867 116.985618665814,121.251022338867z" 
+                                  Stretch="Uniform" Fill="{StaticResource IconColor}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Viewbox>
+                </Button>
+                <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0" Padding="3"
+                        ToolTipService.ToolTip="Ausgewählten RSS-Feed ändern"
+                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
+                        Command="{Binding EditRssLinkCommand}">
+                    <Viewbox>
+
+                        <Grid>
+                            <Grid Width="256" Height="256" Visibility="Visible">
+                                <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" 
+                                      Stretch="Fill" Fill="{StaticResource IconColor}" Visibility="Visible" />
+                            </Grid>
+                            <Path Data="M0,44.439791L18.98951,54.569246 0.47998798,62.66881z M17.428029,12.359973L36.955557,23.568769 21.957478,49.686174 20.847757,46.346189 15.11851,45.756407 14.138656,42.166935 8.5292659,41.966761 6.9493899,38.037481 2.4399572,38.477377z M26.812517,0.0009765625C27.350616,-0.012230873,27.875986,0.10826397,28.348372,0.3782568L42.175028,8.3180408C43.85462,9.2780154,44.234529,11.777948,43.02482,13.89789L41.375219,16.767812 21.460039,5.3381228 23.10964,2.4582005C23.979116,0.941679,25.437378,0.034730911,26.812517,0.0009765625z" 
+                                  Stretch="Uniform" Fill="{StaticResource IconColor}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Viewbox>
+                </Button>
+                <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0" Padding="3"
+                        ToolTipService.ToolTip="Ausgewählten RSS-Feed entfernen"
+                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
+                        Command="{Binding RemoveRssLinkCommand}">
+                    <Viewbox>
+                        <Grid>
+                            <Grid Width="256" Height="256" Visibility="Visible">
+                                <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" 
+                                      Stretch="Fill" Fill="{StaticResource IconColor}" Visibility="Visible" />
+                            </Grid>
+                            <Path Data="M12.367564,9.5351901L12.367564,18.86957 14.301122,18.86957 14.301122,9.5351901z M7.5301319,9.5351901L7.5301319,18.86957 9.4637786,18.86957 9.4637786,9.5351901z M2.6927693,9.5351901L2.6927693,18.86957 4.6264163,18.86957 4.6264163,9.5351901z M0,7.3790004L16.994,7.3790004 16.453585,21.333001 0.54035997,21.333001z M5.7944208,0.90623426L5.7944208,2.1835518 11.19953,2.1835518 11.19953,0.90623426z M4.6264163,0L12.367564,0 12.367564,2.1835518 16.994,2.1835518 16.994,5.1470001 0,5.1470001 0,2.1835518 4.6264163,2.1835518z" 
+                                  Stretch="Uniform" Fill="{StaticResource IconColor}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </Viewbox>
+                </Button>
+            </StackPanel>
+
+            <ListBox Grid.Row="2" Background="Transparent" Margin="10,5"
+                     Style="{StaticResource SourceListBoxStyle}"
+                     SelectedItem="{Binding SourceList_SelectedItem, Mode=TwoWay}" 
+                     ItemsSource="{Binding SourceList}" />
+        </Grid>
+
+        <Grid Grid.Row="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"  
+                   Foreground="{StaticResource ApplicationForgroundColor}" FontSize="16" 
+                   Content="Kategorien"/>
+            <StackPanel Grid.Row="1" Margin="10,0,0,0">
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_general}"
+                          IsChecked="{Binding TabVisibility_General, Mode=TwoWay}"/>
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_sport}"
+                          IsChecked="{Binding TabVisibility_Sport, Mode=TwoWay}"/>
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_technology}"
+                          IsChecked="{Binding TabVisibility_Technology, Mode=TwoWay}"/>
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_health}"
+                          IsChecked="{Binding TabVisibility_Health, Mode=TwoWay}"/>
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_economy}"
+                          IsChecked="{Binding TabVisibility_Economy, Mode=TwoWay}"/>
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_career}"
+                          IsChecked="{Binding TabVisibility_Career, Mode=TwoWay}"/>
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_international}"
+                          IsChecked="{Binding TabVisibility_International, Mode=TwoWay}"/>
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_politics}"
+                          IsChecked="{Binding TabVisibility_Politics, Mode=TwoWay}"/>
+                <CheckBox Margin="5"
+                          Content="{DynamicResource theme_cultural}"
+                          IsChecked="{Binding TabVisibility_Cultural, Mode=TwoWay}"/>
+            </StackPanel>
+
+            
+        </Grid>
+    </Grid>
+</UserControl>

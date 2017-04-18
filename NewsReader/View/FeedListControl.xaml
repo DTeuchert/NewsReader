@@ -1,0 +1,225 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" x:Class="NewsReader.View.FeedListControl" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <CollectionViewSource Source="{Binding FeedList}" x:Key="cvs">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedSportListConverter}}" x:Key="cvs_sport">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedTechnologyListConverter}}" x:Key="cvs_technology">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedHealthListConverter}}" x:Key="cvs_health">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedEconomyListConverter}}" x:Key="cvs_economy">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCareerListConverter}}" x:Key="cvs_career">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedInternationalListConverter}}" x:Key="cvs_international">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedPoliticsListConverter}}" x:Key="cvs_politics">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCulturalListConverter}}" x:Key="cvs_cultural">
+            <CollectionViewSource.SortDescriptions>
+                <scm:SortDescription Direction="Descending" PropertyName="Date"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
+	<Grid>
+		<TabControl Margin="3">
+			<TabItem Header="{DynamicResource theme_general}"
+                     Visibility="{Binding TabVisibility_General, Converter={StaticResource BooleanVisibilityConverter}}">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+
+					<TextBlock Grid.Row="0"
+						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						Visibility="{Binding FeedList, Converter={StaticResource CountGeneralListVisibilityConverter}}"
+						Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						     Style="{StaticResource RSSFeedListBoxStyle}"
+						     ItemsSource="{Binding Source={StaticResource cvs}}"
+                             />
+
+                </Grid>
+			</TabItem>
+            <TabItem Header="{DynamicResource theme_sport}"
+                     Visibility="{Binding TabVisibility_Sport, Converter={StaticResource BooleanVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+
+					<TextBlock Grid.Row="0" 
+						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						Visibility="{Binding FeedList, Converter={StaticResource CountSportListVisibilityConverter}}"
+						Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						     Style="{StaticResource RSSFeedListBoxStyle}"
+						     ItemsSource="{Binding Source={StaticResource cvs_sport}}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource theme_technology}"
+                     Visibility="{Binding TabVisibility_Technology, Converter={StaticResource BooleanVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						Visibility="{Binding FeedList, Converter={StaticResource CountTechnologyListVisibilityConverter}}"
+						Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						     Style="{StaticResource RSSFeedListBoxStyle}"
+						     ItemsSource="{Binding Source={StaticResource cvs_technology}}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource theme_health}"
+                     Visibility="{Binding TabVisibility_Health, Converter={StaticResource BooleanVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						Visibility="{Binding FeedList, Converter={StaticResource CountHealthListVisibilityConverter}}"
+						Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						     Style="{StaticResource RSSFeedListBoxStyle}"
+						     ItemsSource="{Binding Source={StaticResource cvs_health}}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource theme_economy}"
+                     Visibility="{Binding TabVisibility_Economy, Converter={StaticResource BooleanVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						Visibility="{Binding FeedList, Converter={StaticResource CountEconomyListVisibilityConverter}}"
+						Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						     Style="{StaticResource RSSFeedListBoxStyle}"
+						     ItemsSource="{Binding Source={StaticResource cvs_economy}}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource theme_career}"
+                     Visibility="{Binding TabVisibility_Career, Converter={StaticResource BooleanVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						Visibility="{Binding FeedList, Converter={StaticResource CountCareerListVisibilityConverter}}"
+						Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						     Style="{StaticResource RSSFeedListBoxStyle}"
+						     ItemsSource="{Binding Source={StaticResource cvs_career}}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource theme_international}"
+                     Visibility="{Binding TabVisibility_International, Converter={StaticResource BooleanVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						Visibility="{Binding FeedList, Converter={StaticResource CountInternationalListVisibilityConverter}}"
+						Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						     Style="{StaticResource RSSFeedListBoxStyle}"
+						     ItemsSource="{Binding Source={StaticResource cvs_international}}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource theme_politics}"
+                         Visibility="{Binding TabVisibility_Politics, Converter={StaticResource BooleanVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+						    Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						    Visibility="{Binding FeedList, Converter={StaticResource CountPoliticsListVisibilityConverter}}"
+						    Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						         Style="{StaticResource RSSFeedListBoxStyle}"
+						         ItemsSource="{Binding Source={StaticResource cvs_politics}}" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource theme_cultural}"
+                         Visibility="{Binding TabVisibility_Cultural, Converter={StaticResource BooleanVisibilityConverter}}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" 
+						    Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+						    Visibility="{Binding FeedList, Converter={StaticResource CountCulturalListVisibilityConverter}}"
+						    Text="{DynamicResource no_data}" />
+
+                    <ListBox Grid.Row="1" 
+						         Style="{StaticResource RSSFeedListBoxStyle}"
+						         ItemsSource="{Binding Source={StaticResource cvs_cultural}}" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

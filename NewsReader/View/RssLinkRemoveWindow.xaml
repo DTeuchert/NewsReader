@@ -1,0 +1,60 @@
+﻿<Window x:Class="NewsReader.View.RssLinkRemoveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{StaticResource ApplicationBackgroundColor}"
+        Title="NewsReader" Height="150" Width="500">
+    <Window.Icon>
+        <DrawingImage>
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <DrawingGroup.Children>
+                        <GeometryDrawing Brush="{StaticResource IconColor}" 
+                                         Geometry="M30.582001,39.552998L30.582001,42.894001 49.721001,42.894001 49.721001,39.552998z M30.582001,34.034L30.582001,37.071999 49.721001,37.071999 49.721001,34.034z M7.4939995,28.125999L7.4939995,42.776001 25.316,42.776001 25.316,28.125999z M30.582001,28.009001L30.582001,31.655001 49.721001,31.655001 49.721001,28.009001z M7.3920002,16.245001L7.3920002,22.927999 44.556999,22.927999 44.556999,16.245001z M7.3920002,7.0550003L7.3920002,13.536 49.924,13.536 49.924,7.0550003z M0,0L58.733997,0 58.633785,6.0760002 64,6.0760002 57.923878,49.146996 57.923416,49.146305 57.923405,49.146999 0,49.146999z" />
+                    </DrawingGroup.Children>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+    </Window.Icon>
+
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Viewbox Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
+               Margin="20,0"
+               Width="32" Height="32">
+            <Path Data="M27.029001,23.579003L27.029001,23.593003 26.485,23.593003C25.966001,23.593003 25.546001,24.082006 25.546001,24.684007 25.546001,25.28601 25.966001,25.774011 26.485,25.774011L35.067003,25.774011C35.587,25.774011 36.007002,25.28601 36.007002,24.684007 36.007002,24.082006 35.587,23.593003 35.067003,23.593003L33.809,23.593003 33.809,23.579003z M30.119001,16.776978C34.370001,16.776978 37.815,20.222991 37.815,24.472007 37.815,28.722022 34.370001,32.170033 30.119001,32.170033 25.869001,32.170033 22.423,28.722022 22.423,24.472007 22.423,20.222991 25.869001,16.776978 30.119001,16.776978z M12.309003,10.188007C11.662002,10.188007 11.137003,10.676008 11.137003,11.280008 11.137003,11.881009 11.662002,12.369009 12.309003,12.369009L22.999,12.369009C23.646999,12.369009 24.172001,11.881009 24.172001,11.280008 24.172001,10.676008 23.646999,10.188007 22.999,10.188007z M0,6.5450091L5.3089998,6.5450091 5.3089998,10.865072 5.3089998,14.283035 5.3089998,26.50604C5.3089998,27.929988 4.1209996,28.502009 2.655,28.502009 1.1880002,28.502009 0,27.350034 0,25.92401L0,14.283035 0,10.865072z M12.033003,5.9160044C11.369003,5.9160043 10.833003,6.4230047 10.833003,7.0490052 10.833003,7.6760056 11.369003,8.182006 12.033003,8.182006L22.972,8.182006C23.235,8.182006,23.476,8.1010059,23.673,7.9670056L23.923,7.9670056 23.923,7.7390057C24.078001,7.5480055 24.172001,7.3090053 24.172001,7.0490052 24.172001,6.4230047 23.635,5.9160043 22.972,5.9160044z M8.5910033,0L32.289999,0 32.289999,14.746011C31.592998,14.590011 30.866999,14.504011 30.121998,14.504011 24.669,14.504011 20.249,18.926014 20.249,24.379018 20.249,25.640019 20.488001,26.845019 20.919,27.954021L8.5910033,27.954021z"
+                  Stretch="Uniform" Width="48" Height="48" RenderTransformOrigin="0.5,0.5" 
+                  Fill="{StaticResource IconColor}" />
+        </Viewbox>
+
+        <Label Grid.Column="1" Grid.Row="0">
+            <TextBlock Foreground="{StaticResource ApplicationForgroundColor}">
+                <Run Text="Möchten Sie wirklich folgenden RSS-Feed entfernen?"/>
+                <LineBreak/>
+                <Run Text="{Binding RemoveLink.Link}"/>
+            </TextBlock>
+        </Label>
+
+
+        <WrapPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                   Margin="0,15,0,0"
+                   HorizontalAlignment="Right">
+            <Button Style="{StaticResource WindowButtonStyle}"
+                    IsDefault="True"
+                    Content="Entfernen"
+                    ToolTipService.ToolTip="RSS-Feed entfernen"
+                    Click="btnDialogRemove_Click"/>
+            <Button Style="{StaticResource WindowButtonStyle}"
+                    IsCancel="True"
+                    Content="Abbrechen"
+                    ToolTipService.ToolTip="Vorgang abbrechen"/>
+        </WrapPanel>
+    </Grid>
+</Window>

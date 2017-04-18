@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    <system:String x:Key="news">News</system:String>
+    <system:String x:Key="settings">Settings</system:String>
+    <system:String x:Key="bookmark">Bookmark</system:String>
+
+    <system:String x:Key="last_update">Last update:</system:String>
+    <system:String x:Key="no_data">No data available</system:String>
+    <system:String x:Key="no_bookmark">No bookmarks available</system:String>
+
+    <system:String x:Key="theme_general">General</system:String>
+    <system:String x:Key="theme_sport">Sport</system:String>
+    <system:String x:Key="theme_technology">Technology</system:String>
+    <system:String x:Key="theme_health">Health</system:String>
+    <system:String x:Key="theme_economy">Economy</system:String>
+    <system:String x:Key="theme_career">Career</system:String>
+    <system:String x:Key="theme_international">International</system:String>
+    <system:String x:Key="theme_politics">Politics</system:String>
+    <system:String x:Key="theme_cultural">Cultural</system:String>
+
+</ResourceDictionary>
