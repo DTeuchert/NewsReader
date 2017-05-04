@@ -1,5 +1,26 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" >
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    >
+
+    <Style x:Key="ListItemButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Margin="2">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="content"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Beige" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     
     <Style x:Key="RSSFeedListBoxStyle" TargetType="{x:Type ListBox}">
         <Setter Property="Margin" Value="3"/>
@@ -43,9 +64,7 @@
                                     <TextBlock FontWeight="Bold" FontSize="13" TextWrapping="Wrap" Text="{Binding Title}" />
                                     <StackPanel HorizontalAlignment="Right"
                                                 Orientation="Horizontal">
-                                        <Button BorderBrush="Transparent"
-                                                Background="Transparent"
-                                                Width="20"
+                                        <Button Style="{StaticResource ListItemButtonStyle}"
                                                 Command="{Binding OpenLink}">
                                             <Viewbox>
                                                 <Path Data="M194.946686588228,0L285.305023990572,101.774623095582 194.946686588228,191.501002490113 194.946686588228,143.610926806519C194.946686588228,143.610926806519 39.0003059729934,95.7808639403083 0,191.501002490113 0,167.585963427613 14.1771210059524,47.8907958861091 194.946686588228,47.8907958861091z" 
@@ -54,9 +73,7 @@
                                                       Width="16" Height="16"/>
                                             </Viewbox>
                                         </Button>
-                                        <Button BorderBrush="Transparent"
-                                                Background="Transparent"
-                                                Width="20"
+                                        <Button Style="{StaticResource ListItemButtonStyle}"
                                                 Command="{Binding ChangeIsMarked}">
                                             <Viewbox>
                                                 <Path Data="M0,0L279.116,0C358.61,2.45386,371,105.648,371,105.648L371,779 226.402,582.399 81.2777,779 81.2777,105.648C72.4572,12.2693,2E-06,5E-06,0,0z" 
