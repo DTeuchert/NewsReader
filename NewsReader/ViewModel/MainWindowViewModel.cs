@@ -293,45 +293,52 @@ namespace NewsReader.ViewModel
                     
             try
             {
-                var feed = SyndicationFeed.Load(XmlReader.Create(RSSLink.Link.ToString()));
-                foreach (var item in feed.Items)
-                {
-                    if (!_guidList.Any(x => x.Equals(item.Id)))
-                    {
-                        var news = new RSSFeed
-                        {
-                            Guid = item.Id,
-                            Source = RSSLink.Title,
-                            Date = item.PublishDate,
-                            Title = item.Title.Text,
-                            Link = item.Links[0].Uri
-                        };
-                        if (item.Summary != null) news.Description = item.Summary.Text;
-                        if (item.Links.Count >= 2) news.Thumbnail = item.Links[1].Uri;
 
-                        if (item.Categories.Any(x => 
-                            x.Name.Equals("Sport") || 
-                            x.Name.Equals("Fußball"))) news.Category.Add(RSSCategory.Sport);
-                        if (item.Categories.Any(x => 
-                            x.Name.Equals("Technology") || 
-                            x.Name.Equals("Digital"))) news.Category.Add(RSSCategory.Technology);
-                        if (item.Categories.Any(x => 
-                            x.Name.Equals("Gesundheit"))) news.Category.Add(RSSCategory.Gesundheit);
-                        if (item.Categories.Any(x => 
-                            x.Name.Equals("Wirtschaft"))) news.Category.Add(RSSCategory.Wirtschaft);
-                        if (item.Categories.Any(x => 
-                            x.Name.Equals("Karriere"))) news.Category.Add(RSSCategory.Karriere);
-                        if (item.Categories.Any(x => 
-                            x.Name.Equals("International"))) news.Category.Add(RSSCategory.International);
-                        if (item.Categories.Any(x => 
-                            x.Name.Equals("Politik"))) news.Category.Add(RSSCategory.Politik);
-                        if (item.Categories.Any(x => 
-                            x.Name.Equals("Kultur"))) news.Category.Add(RSSCategory.Kultur);
+                using (var reader = XmlReader.Create(RSSLink.Link.ToString()))
+                {
+                    var feed = SyndicationFeed.Load(reader);
+                    if (feed == null) return;
+                    
+                    foreach (var item in feed.Items)
+                    {
+                        if (!_guidList.Any(x => x.Equals(item.Id)))
+                        {
+                            var news = new RSSFeed
+                            {
+                                Guid = item.Id,
+                                Source = feed.Authors?.FirstOrDefault()?.Name ?? RSSLink.Title,
+                                Date = item.PublishDate,
+                                Title = item.Title.Text,
+                                Link = item.Links[0].Uri
+                            };
+
+                            if (item.Summary != null) news.Description = item.Summary.Text;
+                            if (item.Links.Count >= 2) news.Thumbnail = item.Links[1].Uri;
+
+                            if (item.Categories.Any(x => 
+                                x.Name.Equals("Sport") || 
+                                x.Name.Equals("Fußball"))) news.Category.Add(RSSCategory.Sport);
+                            if (item.Categories.Any(x => 
+                                x.Name.Equals("Technology") || 
+                                x.Name.Equals("Digital"))) news.Category.Add(RSSCategory.Technology);
+                            if (item.Categories.Any(x => 
+                                x.Name.Equals("Gesundheit"))) news.Category.Add(RSSCategory.Gesundheit);
+                            if (item.Categories.Any(x => 
+                                x.Name.Equals("Wirtschaft"))) news.Category.Add(RSSCategory.Wirtschaft);
+                            if (item.Categories.Any(x => 
+                                x.Name.Equals("Karriere"))) news.Category.Add(RSSCategory.Karriere);
+                            if (item.Categories.Any(x => 
+                                x.Name.Equals("International"))) news.Category.Add(RSSCategory.International);
+                            if (item.Categories.Any(x => 
+                                x.Name.Equals("Politik"))) news.Category.Add(RSSCategory.Politik);
+                            if (item.Categories.Any(x => 
+                                x.Name.Equals("Kultur"))) news.Category.Add(RSSCategory.Kultur);
        
-                        FeedList.Add(news);
-                        _guidList.Add(news.Guid);
-                    }           
-                }                   
+                            FeedList.Add(news);
+                            _guidList.Add(news.Guid);
+                        }           
+                    }
+                }
             }
             catch(Exception e)
             {
