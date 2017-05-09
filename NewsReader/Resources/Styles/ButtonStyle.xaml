@@ -75,6 +75,12 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Beige" />
             </Trigger>
+            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                <Setter Property="Background" Value="Beige" />
+            </Trigger>
+            <Trigger Property="ToggleButton.IsChecked" Value="False">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
         </Style.Triggers>
     </Style>
 
