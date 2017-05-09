@@ -277,6 +277,8 @@ namespace NewsReader.ViewModel
         }
         private void updateFeedList() 
         {
+            if(IsRefreshing) { return; }
+
             IsRefreshing = true;
             foreach (var feed in SourceList)
             {
