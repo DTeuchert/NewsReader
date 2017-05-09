@@ -291,7 +291,7 @@ namespace NewsReader.ViewModel
         }
         private void updateFeed(RSSLink RSSLink)
         {
-            if (FeedList == null) return;
+            if (FeedList == null) { return };
                     
             try
             {
