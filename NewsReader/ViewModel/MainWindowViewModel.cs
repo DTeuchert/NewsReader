@@ -75,7 +75,7 @@ namespace NewsReader.ViewModel
                     {
                         RSSLinkList = SourceList
                     };
-                    changeRSSLinkWindow.Closed += OnChangeRSSLinkWindow_Closed;
+                    changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRSSLinkWindow.ShowDialog();
                 });
             }
@@ -90,7 +90,7 @@ namespace NewsReader.ViewModel
                     {
                         EditLink = SourceList_SelectedItem
                     };
-                    changeRSSLinkWindow.Closed += OnChangeRSSLinkWindow_Closed;
+                    changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRSSLinkWindow.ShowDialog();
                 });
             }
@@ -106,7 +106,7 @@ namespace NewsReader.ViewModel
                         RemoveLink = SourceList_SelectedItem,
                         RSSLinkList = SourceList
                     };
-                    changeRSSLinkWindow.Closed += OnChangeRSSLinkWindow_Closed;
+                    changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRSSLinkWindow.ShowDialog();
                 });
             }
@@ -166,6 +166,7 @@ namespace NewsReader.ViewModel
             set 
             {
                 _visibleCategories[RSSCategory.General] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_General");
             } 
         }   
@@ -175,6 +176,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _visibleCategories[RSSCategory.Sport] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_Sport");
             }
         }
@@ -184,6 +186,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _visibleCategories[RSSCategory.Technology] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_Technology");
             }
         }
@@ -193,6 +196,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _visibleCategories[RSSCategory.Health] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_Health");
             }
         }
@@ -202,6 +206,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _visibleCategories[RSSCategory.Economy] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_Economy");
             }
         }
@@ -211,6 +216,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _visibleCategories[RSSCategory.Career] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_Career");
             }
         }
@@ -220,6 +226,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _visibleCategories[RSSCategory.International] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_International");
             }
         }
@@ -229,6 +236,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _visibleCategories[RSSCategory.Politics] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_Politics");
             }
         }
@@ -238,6 +246,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _visibleCategories[RSSCategory.Cultural] = value;
+                OnChange_RSSCategory();
                 OnPropertyChanged("TabVisibility_Cultural");
             }
         }
@@ -264,20 +273,29 @@ namespace NewsReader.ViewModel
 
             updateSourceList();
             updateFeedList();
+            loadVisibleTabs();
         }
 
-        private void OnChangeRSSLinkWindow_Closed(object sender, EventArgs e)
+        private void OnClose_RSSLinkWindow(object sender, EventArgs e)
         {
             if ((sender as Window).DialogResult == true)
             {
-                SerializeHandler.Save(SourceList);
+                SerializeHandler.Save_Links(SourceList);
                 updateFeedList();
             }          
+        }
+        private void OnChange_RSSCategory()
+        {
+            SerializeHandler.Save_Tabs(_visibleCategories);
         }
 
         private void updateSourceList()
         {
-            SourceList = SerializeHandler.Load();
+            SourceList = SerializeHandler.Load_Links();
+        }
+        private void loadVisibleTabs()
+        {
+            _visibleCategories = SerializeHandler.Load_Tabs();
         }
         private void updateFeedList() 
         {

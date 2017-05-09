@@ -178,6 +178,7 @@
     <Compile Include="Model\Enum\RSSCategory.cs" />
     <Compile Include="Model\RSSFeed.cs" />
     <Compile Include="Model\RSSLink.cs" />
+    <Compile Include="Util\DictionaryItem.cs" />
     <Compile Include="Util\LanguageHandler.cs" />
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="Util\SerializeHandler.cs" />
