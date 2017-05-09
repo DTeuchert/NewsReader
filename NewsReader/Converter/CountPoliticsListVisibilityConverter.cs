@@ -14,7 +14,7 @@ namespace NewsReader.Converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return ((RSSFeedCollection)value == null 
-                || (value as RSSFeedCollection).Count(x => x.Category.Any(y => y == RSSCategory.Politik)) <= 0)
+                || (value as RSSFeedCollection).Count(x => x.Category.Any(y => y == RSSCategory.Politics)) <= 0)
                 ? Visibility.Visible : Visibility.Hidden;
         }
 

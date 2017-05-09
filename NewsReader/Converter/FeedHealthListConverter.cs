@@ -14,7 +14,7 @@ namespace NewsReader.Converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var list = (RSSFeedCollection)value;
-            return list.Where(x => x.Category.Any(y => y == RSSCategory.Gesundheit));
+            return list.Where(x => x.Category.Any(y => y == RSSCategory.Health));
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

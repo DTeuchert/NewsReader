@@ -8,13 +8,14 @@ namespace NewsReader.Model.Enum
 {
     public enum RSSCategory
     {
+        General,
         Sport,
         Technology, 
-        Gesundheit,
-        Wirtschaft,
-        Karriere,
+        Health,
+        Economy,
+        Career,
         International,
-        Politik,
-        Kultur
+        Politics,
+        Cultural
     }
 }
