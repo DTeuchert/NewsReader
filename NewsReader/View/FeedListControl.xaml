@@ -55,8 +55,9 @@
         </CollectionViewSource>
     </UserControl.Resources>
 	<Grid>
-		<TabControl Margin="3">
+        <TabControl Style="{StaticResource TabControlStyle}">
 			<TabItem Header="{DynamicResource theme_general}"
+                     Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_General, Converter={StaticResource BooleanVisibilityConverter}}">
 				<Grid>
 					<Grid.RowDefinitions>
@@ -77,6 +78,7 @@
                 </Grid>
 			</TabItem>
             <TabItem Header="{DynamicResource theme_sport}"
+                     Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Sport, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -95,6 +97,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="{DynamicResource theme_technology}"
+                     Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Technology, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -113,6 +116,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="{DynamicResource theme_health}"
+                     Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Health, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -131,6 +135,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="{DynamicResource theme_economy}"
+                     Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Economy, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -149,6 +154,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="{DynamicResource theme_career}"
+                     Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Career, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -167,6 +173,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="{DynamicResource theme_international}"
+                     Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_International, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -185,6 +192,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="{DynamicResource theme_politics}"
+                     Style="{StaticResource TabItemStyle}"
                          Visibility="{Binding TabVisibility_Politics, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -203,7 +211,8 @@
                 </Grid>
             </TabItem>
             <TabItem Header="{DynamicResource theme_cultural}"
-                         Visibility="{Binding TabVisibility_Cultural, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Style="{StaticResource TabItemStyle}"
+                     Visibility="{Binding TabVisibility_Cultural, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
