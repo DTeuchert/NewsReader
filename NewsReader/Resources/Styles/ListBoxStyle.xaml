@@ -21,7 +21,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <Style x:Key="RSSFeedListBoxStyle" TargetType="{x:Type ListBox}">
         <Setter Property="Margin" Value="3"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -32,86 +32,108 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <StackPanel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                        
-                            <Grid Grid.Column="0" 
-                                  Background="{Binding HasBeenSeen, Converter={StaticResource BackgroundHasSeenConverter}}"/>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                            <Border  Grid.Column="1" Width="62" Height="Auto" Margin="3"
+                        <Border CornerRadius="2"
+                                    Background="{Binding HasBeenSeen, Converter={StaticResource BackgroundHasSeenConverter}}"/>
+
+                        <Border  Grid.Column="1" Width="62" Height="Auto" Margin="3"
                                      BorderBrush="#FF3B5998">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="5"
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="5"
                                                       Opacity=".5"
                                                       ShadowDepth="3" />
-                                </Border.Effect>
-                                <Image Source="{Binding Thumbnail}" />
-                            </Border>
+                            </Border.Effect>
+                            <Image Source="{Binding Thumbnail}" />
+                        </Border>
 
-
-                            <Grid Grid.Column="2">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <DockPanel Grid.Row="0" Margin="3">
-                                    <TextBlock FontWeight="Bold" FontSize="13" TextWrapping="Wrap" Text="{Binding Title}" />
-                                    <StackPanel HorizontalAlignment="Right"
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <DockPanel Grid.Row="0" Margin="3">
+                                <TextBlock FontWeight="Bold" FontSize="13" TextWrapping="Wrap" Text="{Binding Title}" />
+                                <StackPanel HorizontalAlignment="Right"
                                                 Orientation="Horizontal">
-                                        <Button Style="{StaticResource ListItemButtonStyle}"
+                                    <Button Style="{StaticResource ListItemButtonStyle}"
                                                 Command="{Binding OpenLink}">
-                                            <Viewbox>
-                                                <Path Data="M194.946686588228,0L285.305023990572,101.774623095582 194.946686588228,191.501002490113 194.946686588228,143.610926806519C194.946686588228,143.610926806519 39.0003059729934,95.7808639403083 0,191.501002490113 0,167.585963427613 14.1771210059524,47.8907958861091 194.946686588228,47.8907958861091z" 
+                                        <Viewbox>
+                                            <Path Data="M194.946686588228,0L285.305023990572,101.774623095582 194.946686588228,191.501002490113 194.946686588228,143.610926806519C194.946686588228,143.610926806519 39.0003059729934,95.7808639403083 0,191.501002490113 0,167.585963427613 14.1771210059524,47.8907958861091 194.946686588228,47.8907958861091z" 
                                                       Stretch="Uniform" 
-                                                      Fill="#606060" 
+                                                      Fill="{StaticResource ApplicationHighlightColor}" 
                                                       Width="16" Height="16"/>
-                                            </Viewbox>
-                                        </Button>
-                                        <Button Style="{StaticResource ListItemButtonStyle}"
+                                        </Viewbox>
+                                    </Button>
+                                    <Button Style="{StaticResource ListItemButtonStyle}"
                                                 Command="{Binding ChangeIsMarked}">
-                                            <Viewbox>
-                                                <Path Data="M0,0L279.116,0C358.61,2.45386,371,105.648,371,105.648L371,779 226.402,582.399 81.2777,779 81.2777,105.648C72.4572,12.2693,2E-06,5E-06,0,0z" 
+                                        <Viewbox>
+                                            <Path Data="M4.2800019,0L11.127999,0C13.491008,0,15.408001,1.9349976,15.408001,4.3209839L15.408001,32 7.5820063,23.104004 0,32 0,4.3209839C2.0228617E-07,1.9349976,1.9169938,0,4.2800019,0z" 
                                                       Stretch="Uniform" 
-                                                      Stroke="#606060" 
+                                                      Stroke="{StaticResource ApplicationHighlightColor}" 
                                                       Fill="{Binding IsMarked, Converter={StaticResource ColorIsMarkedConverter}}" 
                                                       Width="16" Height="16"/>
-                                            </Viewbox>
-                                        </Button>
-                                    </StackPanel>
-                                
-                                </DockPanel>
-                                <TextBlock Grid.Row="1" Margin="3" FontStyle="Italic" TextWrapping="Wrap" Text="{Binding Description}" />
-                                <DockPanel Grid.Row="2" Margin="3">
-                                    <TextBlock  Opacity=".7" Text="{Binding Date, Converter={StaticResource DateTimeFormatConverter}}" />
-                                    <TextBlock HorizontalAlignment="Right" Opacity=".7" Text="{Binding Source}" />
-                                </DockPanel>
-                            </Grid>
+                                        </Viewbox>
+                                    </Button>
+                                </StackPanel>
+
+                            </DockPanel>
+                            <TextBlock Grid.Row="1" Margin="3" FontStyle="Italic" TextWrapping="Wrap" Text="{Binding Description}" />
+                            <DockPanel Grid.Row="2" Margin="3">
+                                <TextBlock  Opacity=".7" Text="{Binding Date, Converter={StaticResource DateTimeFormatConverter}}" />
+                                <TextBlock HorizontalAlignment="Right" Opacity=".7" Text="{Binding Source}" />
+                            </DockPanel>
                         </Grid>
-                        <Separator/>
-                    </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-    <Style x:Key="RSSFeedListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
-        <Style.Resources>
-            <!-- SelectedItem with focus -->
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
-                       Color="Transparent" />
-            <!-- SelectedItem without focus -->
-            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}"
-                       Color="Transparent" />
-            <!-- SelectedItem text foreground -->
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}"
-                       Color="Black" />
-        </Style.Resources>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" />
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="Opacity" Duration="0" To=".5"/>
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled" />
+                                        </VisualStateGroup>
+                                        <VisualStateGroup x:Name="SelectionStates">
+                                            <VisualState x:Name="Unselected" />
+                                            <VisualState x:Name="Selected" />
+                                        </VisualStateGroup>
+                                        <VisualStateGroup x:Name="FocusStates">
+                                            <VisualState x:Name="Focused" />
+                                            <VisualState x:Name="Unfocused"/>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Rectangle x:Name="fillColor" Opacity="0" Fill="LightGray" IsHitTestVisible="False" RadiusX="3" RadiusY="3"/>
+                                    <ContentPresenter
+                                      x:Name="contentPresenter"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      Margin="{TemplateBinding Padding}"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style x:Key="SourceListBoxStyle" TargetType="{x:Type ListBox}">
@@ -123,6 +145,66 @@
                         <TextBlock Text="{Binding Link}" FontSize="11"/>
                     </StackPanel>
                 </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="CommonStates">
+                                            <VisualState x:Name="Normal" />
+                                            <VisualState x:Name="MouseOver">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="Opacity" Duration="0" To=".35"/>
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Disabled">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="Opacity" Duration="0" To=".55" />
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                        <VisualStateGroup x:Name="SelectionStates">
+                                            <VisualState x:Name="Unselected" />
+                                            <VisualState x:Name="Selected">
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetName="fillColor2" Storyboard.TargetProperty="Opacity" Duration="0" To=".75"/>
+                                                </Storyboard>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                        <VisualStateGroup x:Name="FocusStates">
+                                            <VisualState x:Name="Focused">
+                                                <Storyboard>
+                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusVisualElement" Storyboard.TargetProperty="Visibility" Duration="0">
+                                                        <DiscreteObjectKeyFrame KeyTime="0">
+                                                            <DiscreteObjectKeyFrame.Value>
+                                                                <Visibility>Visible</Visibility>
+                                                            </DiscreteObjectKeyFrame.Value>
+                                                        </DiscreteObjectKeyFrame>
+                                                    </ObjectAnimationUsingKeyFrames>
+                                                </Storyboard>
+                                            </VisualState>
+                                            <VisualState x:Name="Unfocused"/>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Rectangle x:Name="fillColor" Opacity="0" Fill="LightGray" IsHitTestVisible="False" RadiusX="3" RadiusY="3"/>
+                                    <Rectangle x:Name="fillColor2" Opacity="0" Fill="LightGray" IsHitTestVisible="False" RadiusX="3" RadiusY="3"/>
+                                    <ContentPresenter
+                              x:Name="contentPresenter"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}"/>
+                                    <Rectangle x:Name="FocusVisualElement" Stroke="Gray" StrokeThickness="1" Visibility="Collapsed" RadiusX="3" RadiusY="3" />
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
             </Setter.Value>
         </Setter>
     </Style>
