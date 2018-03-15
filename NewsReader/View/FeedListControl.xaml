@@ -1,10 +1,12 @@
 ﻿<UserControl
+             x:Class="NewsReader.View.FeedListControl" 
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" x:Class="NewsReader.View.FeedListControl" 
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:util="clr-namespace:NewsReader.Util"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -56,7 +58,7 @@
     </UserControl.Resources>
 	<Grid>
         <TabControl Style="{StaticResource TabControlStyle}">
-			<TabItem Header="{DynamicResource theme_general}"
+			<TabItem Header="{util:Localization theme_general}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_General, Converter={StaticResource BooleanVisibilityConverter}}">
 				<Grid>
@@ -68,7 +70,7 @@
 					<TextBlock Grid.Row="0"
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						Visibility="{Binding FeedList, Converter={StaticResource CountGeneralListVisibilityConverter}}"
-						Text="{DynamicResource no_data}" />
+						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						     Style="{StaticResource RSSFeedListBoxStyle}"
@@ -77,7 +79,7 @@
 
                 </Grid>
 			</TabItem>
-            <TabItem Header="{DynamicResource theme_sport}"
+            <TabItem Header="{util:Localization theme_sport}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Sport, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
@@ -89,14 +91,14 @@
 					<TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						Visibility="{Binding FeedList, Converter={StaticResource CountSportListVisibilityConverter}}"
-						Text="{DynamicResource no_data}" />
+						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						     Style="{StaticResource RSSFeedListBoxStyle}"
 						     ItemsSource="{Binding Source={StaticResource cvs_sport}}" />
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource theme_technology}"
+            <TabItem Header="{util:Localization theme_technology}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Technology, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
@@ -108,14 +110,14 @@
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						Visibility="{Binding FeedList, Converter={StaticResource CountTechnologyListVisibilityConverter}}"
-						Text="{DynamicResource no_data}" />
+						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						     Style="{StaticResource RSSFeedListBoxStyle}"
 						     ItemsSource="{Binding Source={StaticResource cvs_technology}}" />
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource theme_health}"
+            <TabItem Header="{util:Localization theme_health}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Health, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
@@ -127,14 +129,14 @@
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						Visibility="{Binding FeedList, Converter={StaticResource CountHealthListVisibilityConverter}}"
-						Text="{DynamicResource no_data}" />
+						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						     Style="{StaticResource RSSFeedListBoxStyle}"
 						     ItemsSource="{Binding Source={StaticResource cvs_health}}" />
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource theme_economy}"
+            <TabItem Header="{util:Localization theme_economy}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Economy, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
@@ -146,14 +148,14 @@
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						Visibility="{Binding FeedList, Converter={StaticResource CountEconomyListVisibilityConverter}}"
-						Text="{DynamicResource no_data}" />
+						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						     Style="{StaticResource RSSFeedListBoxStyle}"
 						     ItemsSource="{Binding Source={StaticResource cvs_economy}}" />
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource theme_career}"
+            <TabItem Header="{util:Localization theme_career}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Career, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
@@ -165,14 +167,14 @@
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						Visibility="{Binding FeedList, Converter={StaticResource CountCareerListVisibilityConverter}}"
-						Text="{DynamicResource no_data}" />
+						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						     Style="{StaticResource RSSFeedListBoxStyle}"
 						     ItemsSource="{Binding Source={StaticResource cvs_career}}" />
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource theme_international}"
+            <TabItem Header="{util:Localization theme_international}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_International, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
@@ -184,14 +186,14 @@
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						Visibility="{Binding FeedList, Converter={StaticResource CountInternationalListVisibilityConverter}}"
-						Text="{DynamicResource no_data}" />
+						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						     Style="{StaticResource RSSFeedListBoxStyle}"
 						     ItemsSource="{Binding Source={StaticResource cvs_international}}" />
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource theme_politics}"
+            <TabItem Header="{util:Localization theme_politics}"
                      Style="{StaticResource TabItemStyle}"
                          Visibility="{Binding TabVisibility_Politics, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
@@ -203,14 +205,14 @@
                     <TextBlock Grid.Row="0" 
 						    Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						    Visibility="{Binding FeedList, Converter={StaticResource CountPoliticsListVisibilityConverter}}"
-						    Text="{DynamicResource no_data}" />
+						    Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						         Style="{StaticResource RSSFeedListBoxStyle}"
 						         ItemsSource="{Binding Source={StaticResource cvs_politics}}" />
                 </Grid>
             </TabItem>
-            <TabItem Header="{DynamicResource theme_cultural}"
+            <TabItem Header="{util:Localization theme_cultural}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Cultural, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
@@ -222,7 +224,7 @@
                     <TextBlock Grid.Row="0" 
 						    Margin="3" TextAlignment="Center" VerticalAlignment="Center"
 						    Visibility="{Binding FeedList, Converter={StaticResource CountCulturalListVisibilityConverter}}"
-						    Text="{DynamicResource no_data}" />
+						    Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
 						         Style="{StaticResource RSSFeedListBoxStyle}"

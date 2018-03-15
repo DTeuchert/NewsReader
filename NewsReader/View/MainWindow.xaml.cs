@@ -9,7 +9,6 @@ namespace NewsReader.View
     {
         public MainWindow()
         {
-            LanguageHandler.SetLanguageDictionary(Resources);
             InitializeComponent();
         }
     }

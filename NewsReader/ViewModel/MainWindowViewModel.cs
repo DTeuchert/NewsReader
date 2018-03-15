@@ -64,7 +64,7 @@ namespace NewsReader.ViewModel
         public RSSLinkCollection SourceList { get; set; }
         public RSSFeedCollection BookmarkList { get; set; }
         public RSSFeedCollection FeedList { get; set; }
-        
+
         public ICommand AddRssLinkCommand
         {
             get

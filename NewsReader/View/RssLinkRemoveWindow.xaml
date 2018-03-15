@@ -1,6 +1,7 @@
 ﻿<Window x:Class="NewsReader.View.RssLinkRemoveWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:util="clr-namespace:NewsReader.Util"
         Background="{StaticResource ApplicationBackgroundColor}"
         Title="NewsReader" Height="150" Width="500">
     <Window.Icon>
@@ -36,7 +37,7 @@
 
         <Label Grid.Column="1" Grid.Row="0">
             <TextBlock Foreground="{StaticResource ApplicationForgroundColor}">
-                <Run Text="Möchten Sie wirklich folgenden RSS-Feed entfernen?"/>
+                <Run Text="{util:Localization dialog_delete_text}"/>
                 <LineBreak/>
                 <Run Text="{Binding RemoveLink.Link}"/>
             </TextBlock>
@@ -48,13 +49,13 @@
                    HorizontalAlignment="Right">
             <Button Style="{StaticResource WindowButtonStyle}"
                     IsDefault="True"
-                    Content="Entfernen"
-                    ToolTipService.ToolTip="RSS-Feed entfernen"
+                    Content="{util:Localization btn_delete_rss}"
+                    ToolTipService.ToolTip="{util:Localization btn_delete_rss_tooltip}"
                     Click="btnDialogRemove_Click"/>
             <Button Style="{StaticResource WindowButtonStyle}"
                     IsCancel="True"
-                    Content="Abbrechen"
-                    ToolTipService.ToolTip="Vorgang abbrechen"/>
+                    Content="{util:Localization btn_cancel}"
+                    ToolTipService.ToolTip="{util:Localization btn_cancel_tooltip}"/>
         </WrapPanel>
     </Grid>
 </Window>

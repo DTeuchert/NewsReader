@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:viewModel="clr-namespace:NewsReader.ViewModel"
         xmlns:view="clr-namespace:NewsReader.View"
+        xmlns:util="clr-namespace:NewsReader.Util"
         Background="{StaticResource ApplicationBackgroundColor}"
         WindowStyle="SingleBorderWindow"
         Title="NewsReader">
@@ -61,13 +62,13 @@
 
                 <Label Grid.Row="0" 
                        Foreground="{StaticResource ApplicationForgroundColor}" FontSize="21"
-                       Content="{DynamicResource news}"/>
+                       Content="{util:Localization news}"/>
                 
                 <view:FeedListControl Grid.Row="1"/>
                 
                 <Label Grid.Row="2">
                     <TextBlock Foreground="{StaticResource ApplicationForgroundColor}">
-                        <Run Text="{DynamicResource last_update}"/>
+                        <Run Text="{util:Localization last_update}"/>
                         <Run Text="{Binding LastUpdate, Converter={StaticResource DateTimeFormatConverter}}"/>
                     </TextBlock>
                 </Label>

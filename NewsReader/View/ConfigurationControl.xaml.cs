@@ -1,4 +1,6 @@
-﻿namespace NewsReader.View
+﻿using System.Windows.Controls;
+
+namespace NewsReader.View
 {
     /// <summary>
     /// Interaktionslogik für ConfigurationControl.xaml
@@ -8,6 +10,10 @@
         public ConfigurationControl()
         {
             InitializeComponent();
+        }
+        private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Util.LocalizationService.SetLanguage(((ComboBoxItem)e.AddedItems[0]).Uid);
         }
     }
 }

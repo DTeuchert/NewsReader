@@ -4,11 +4,12 @@ using System.Windows.Data;
 
 namespace NewsReader.Converter
 {
-    class DateTimeFormatConverter : IValueConverter
+    class IsSelectedLanguageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((DateTimeOffset)value).ToString("ddd, dd. MMMM yyyy - H:mm", Util.TranslationSource.Instance.CurrentCulture);;
+            var itemLanguage = new CultureInfo(parameter.ToString());
+            return Util.TranslationSource.Instance.CurrentCulture.Equals(itemLanguage);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

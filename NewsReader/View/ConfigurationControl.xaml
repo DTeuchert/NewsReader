@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:util="clr-namespace:NewsReader.Util"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 	
@@ -11,13 +12,33 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0"  
+        <Label Grid.Row="0"
+               Margin="5 0 0 0" 
                Foreground="{StaticResource ApplicationForgroundColor}" FontSize="21"
-               Content="{DynamicResource settings}"/>
+               Content="{util:Localization settings}"/>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1"
+              Margin="10 0 0 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0"  
+                   Foreground="{StaticResource ApplicationForgroundColor}" FontSize="16" 
+                   Content="{util:Localization settings_language}"/>
+            
+            <ComboBox Grid.Row="1" SelectionChanged="LanguageComboBox_SelectionChanged">
+                <ComboBoxItem x:Uid="de-DE" IsSelected="{Binding Converter={StaticResource IsSelectedLanguageConverter}, ConverterParameter='de-DE', Mode=OneWay}">Deutsch</ComboBoxItem>
+                <ComboBoxItem x:Uid="en-US" IsSelected="{Binding Converter={StaticResource IsSelectedLanguageConverter}, ConverterParameter='en-US', Mode=OneWay}">Englisch</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+
+        <Grid Grid.Row="2"
+              Margin="10 0 0 0">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -27,11 +48,11 @@
 
             <Label Grid.Row="0"  
                    Foreground="{StaticResource ApplicationForgroundColor}" FontSize="16" 
-                   Content="RSS-Feeds"/>
+                   Content="{util:Localization settings_rss}"/>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0"  Padding="3"
-                        ToolTipService.ToolTip="RSS-Feed hinzufügen"
+                        ToolTipService.ToolTip="{util:Localization btn_add_rss_tooltip}"
                         Command="{Binding AddRssLinkCommand}" >
                     <Viewbox>
                         <Grid>
@@ -54,7 +75,7 @@
                     </Viewbox>
                 </Button>
                 <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0" Padding="3"
-                        ToolTipService.ToolTip="Ausgewählten RSS-Feed ändern"
+                        ToolTipService.ToolTip="{util:Localization btn_edit_rss_tooltip}"
                         Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
                         Command="{Binding EditRssLinkCommand}">
                     <Viewbox>
@@ -79,7 +100,7 @@
                     </Viewbox>
                 </Button>
                 <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0" Padding="3"
-                        ToolTipService.ToolTip="Ausgewählten RSS-Feed entfernen"
+                        ToolTipService.ToolTip="{util:Localization btn_delete_rss_tooltip}"
                         Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
                         Command="{Binding RemoveRssLinkCommand}">
                     <Viewbox>
@@ -110,7 +131,8 @@
                      ItemsSource="{Binding SourceList}" />
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3"
+              Margin="10 0 0 0">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -119,34 +141,34 @@
 
             <Label Grid.Row="0"  
                    Foreground="{StaticResource ApplicationForgroundColor}" FontSize="16" 
-                   Content="Kategorien"/>
+                   Content="{util:Localization settings_categories}"/>
             <StackPanel Grid.Row="1" Margin="10,0,0,0">
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_general}"
+                          Content="{util:Localization theme_general}"
                           IsChecked="{Binding TabVisibility_General, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_sport}"
+                          Content="{util:Localization theme_sport}"
                           IsChecked="{Binding TabVisibility_Sport, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_technology}"
+                          Content="{util:Localization theme_technology}"
                           IsChecked="{Binding TabVisibility_Technology, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_health}"
+                          Content="{util:Localization theme_health}"
                           IsChecked="{Binding TabVisibility_Health, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_economy}"
+                          Content="{util:Localization theme_economy}"
                           IsChecked="{Binding TabVisibility_Economy, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_career}"
+                          Content="{util:Localization theme_career}"
                           IsChecked="{Binding TabVisibility_Career, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_international}"
+                          Content="{util:Localization theme_international}"
                           IsChecked="{Binding TabVisibility_International, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_politics}"
+                          Content="{util:Localization theme_politics}"
                           IsChecked="{Binding TabVisibility_Politics, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
-                          Content="{DynamicResource theme_cultural}"
+                          Content="{util:Localization theme_cultural}"
                           IsChecked="{Binding TabVisibility_Cultural, Mode=TwoWay}"/>
             </StackPanel>
 

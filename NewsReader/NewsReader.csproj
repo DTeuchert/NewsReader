@@ -90,14 +90,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Language\StringResources.en-US.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Language\StringResources.de-DE.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\StyleResource.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,6 +166,7 @@
     <Compile Include="Converter\ColorIsMarkedConverter.cs" />
     <Compile Include="Converter\BooleanVisibilityConverter.cs" />
     <Compile Include="Converter\BackgroundHasSeenConverter.cs" />
+    <Compile Include="Converter\IsSelectedLanguageConverter.cs" />
     <Compile Include="Converter\SelectedItemVisivilityConverter.cs" />
     <Compile Include="Converter\SelectedItemIsEnableConverter.cs" />
     <Compile Include="Converter\DateTimeFormatConverter.cs" />
@@ -182,10 +175,22 @@
     <Compile Include="Model\Enum\RSSCategory.cs" />
     <Compile Include="Model\RSSFeed.cs" />
     <Compile Include="Model\RSSLink.cs" />
+    <Compile Include="Resources\Strings\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Strings\Resources.de-DE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.de-DE.resx</DependentUpon>
+    </Compile>
     <Compile Include="Util\DictionaryItem.cs" />
-    <Compile Include="Util\LanguageHandler.cs" />
+    <Compile Include="Util\LocalizationExtension.cs" />
+    <Compile Include="Util\LocalizationService.cs" />
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="Util\SerializeHandler.cs" />
+    <Compile Include="Util\TranslationSource.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\BookmarkControl.xaml.cs">
@@ -228,6 +233,14 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Strings\Resources.de-DE.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.de-DE.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

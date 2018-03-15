@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using NewsReader.Util;
 using System.Windows;
-using NewsReader.Util;
 
 namespace NewsReader
 {
@@ -14,8 +8,10 @@ namespace NewsReader
     /// </summary>
     public partial class App : Application
     {
-        public App()
+        protected override void OnStartup(StartupEventArgs e)
         {
+            base.OnStartup(e);
+            LocalizationService.SetLanguage("de-DE");
         }
     }
 }

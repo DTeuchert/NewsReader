@@ -1,6 +1,7 @@
 ﻿<Window x:Class="NewsReader.View.RssLinkAddWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:util="clr-namespace:NewsReader.Util"
         Background="{StaticResource ApplicationBackgroundColor}"
         Title="NewsReader" Height="200" Width="500">
     <Window.Icon>
@@ -36,22 +37,20 @@
         
         <Label Grid.Column="1" Grid.Row="0"
                Foreground="{StaticResource ApplicationForgroundColor}"
-               Content="Fügen Sie hier bitte den Link zum RSS-Feed hinzu:" />
+               Content="{util:Localization dialog_add_text}" />
 
         <StackPanel Grid.Column="1" Grid.Row="1">
-            <TextBlock Text="Titel:"/>
-
+            <TextBlock Text="{util:Localization dialog_title}"/>
             <TextBox Name="newLinkTextBox_Titel"
                  Grid.Column="1" Grid.Row="1"
                  MinWidth="250"
-                 ToolTipService.ToolTip="Titel eingeben"/>
+                 ToolTipService.ToolTip="{util:Localization dialog_title_tooltip}"/>
 
-            <TextBlock Text="Link:"/>
-
+            <TextBlock Text="{util:Localization dialog_link}"/>
             <TextBox Name="newLinkTextBox_Link"
                  Grid.Column="1" Grid.Row="1"
                  MinWidth="250"
-                 ToolTipService.ToolTip="Link eingeben"/>
+                 ToolTipService.ToolTip="{util:Localization dialog_link_tooltip}"/>
         </StackPanel>
         
         
@@ -61,13 +60,13 @@
                    HorizontalAlignment="Right">
             <Button Style="{StaticResource WindowButtonStyle}"
                     IsDefault="True"
-                    Content="Hinzufügen"
-                    ToolTipService.ToolTip="RSS-Feed hinzufügen"
+                    Content="{util:Localization btn_add_rss}"
+                    ToolTipService.ToolTip="{util:Localization btn_add_rss_tooltip}"
                     Click="btnDialogAdd_Click"/>
             <Button Style="{StaticResource WindowButtonStyle}"
                     IsCancel="True"
-                    Content="Abbrechen"
-                    ToolTipService.ToolTip="Vorgang abbrechen"/>
+                    Content="{util:Localization btn_cancel}"
+                    ToolTipService.ToolTip="{util:Localization btn_cancel_tooltip}"/>
         </WrapPanel>
     </Grid>
 </Window>
