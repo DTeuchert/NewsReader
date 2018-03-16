@@ -271,32 +271,24 @@ namespace NewsReader.ViewModel
             FeedList = new RSSFeedCollection();
             BookmarkList = new RSSFeedCollection();
 
-            updateSourceList();
+            SourceList = ConfigurationService.Links;
+            _visibleCategories = ConfigurationService.VisibleCategories;
             updateFeedList();
-            loadVisibleTabs();
         }
 
         private void OnClose_RSSLinkWindow(object sender, EventArgs e)
         {
             if ((sender as Window).DialogResult == true)
             {
-                SerializeHandler.Save_Links(SourceList);
+                ConfigurationService.Links = SourceList;
                 updateFeedList();
             }          
         }
         private void OnChange_RSSCategory()
         {
-            SerializeHandler.Save_Tabs(_visibleCategories);
+            ConfigurationService.VisibleCategories = _visibleCategories;
         }
-
-        private void updateSourceList()
-        {
-            SourceList = SerializeHandler.Load_Links();
-        }
-        private void loadVisibleTabs()
-        {
-            _visibleCategories = SerializeHandler.Load_Tabs();
-        }
+        
         private void updateFeedList() 
         {
             if(IsRefreshing) { return; }

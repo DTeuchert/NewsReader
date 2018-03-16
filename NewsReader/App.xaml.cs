@@ -11,7 +11,7 @@ namespace NewsReader
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            LocalizationService.SetLanguage("de-DE");
+            LocalizationService.SetLanguage(ConfigurationService.Language);
         }
     }
 }
