@@ -10,8 +10,8 @@
     <Grid Background="{StaticResource ApplicationBackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"  />
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -21,7 +21,7 @@
                Content="{util:Localization settings}"/>
 
         <Grid Grid.Row="1"
-              Margin="10 0 0 0">
+              Margin="10 0 10 10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -38,7 +38,7 @@
         </Grid>
 
         <Grid Grid.Row="2"
-              Margin="10 0 0 0">
+              Margin="10 0 10 10">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -132,7 +132,7 @@
         </Grid>
 
         <Grid Grid.Row="3"
-              Margin="10 0 0 0">
+              Margin="10 0 10 10">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
