@@ -60,7 +60,7 @@ namespace NewsReader.Model
             set
             {
                 _hasBeenSeen = value;
-                OnPropertyChanged("HasBeenSeen");
+                OnPropertyChanged(nameof(HasBeenSeen));
             }
         }
                 
@@ -74,7 +74,7 @@ namespace NewsReader.Model
             set
             {
                 _isMarked = value;
-                OnPropertyChanged("IsMarked");
+                OnPropertyChanged(nameof(IsMarked));
             }
         }
 

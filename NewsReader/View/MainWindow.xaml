@@ -1,7 +1,6 @@
 ﻿<Window x:Class="NewsReader.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:viewModel="clr-namespace:NewsReader.ViewModel"
         xmlns:view="clr-namespace:NewsReader.View"
         xmlns:util="clr-namespace:NewsReader.Util"
         Background="{StaticResource ApplicationBackgroundColor}"
@@ -19,10 +18,7 @@
             </DrawingImage.Drawing>
         </DrawingImage>
     </Window.Icon>
-    <Window.DataContext>
-        <viewModel:MainWindowViewModel/>
-    </Window.DataContext>
-    
+
     <DockPanel Background="{StaticResource ApplicationBackgroundColor}">
 
         <StackPanel DockPanel.Dock="Right">

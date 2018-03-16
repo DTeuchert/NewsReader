@@ -16,7 +16,7 @@ namespace NewsReader.Model
             set
             {
                 _title = value;
-                OnPropertyChanged("Title");
+                OnPropertyChanged(nameof(Title));
             }
         }
 
@@ -27,7 +27,7 @@ namespace NewsReader.Model
             set
             {
                 _link = value;
-                OnPropertyChanged("Link");
+                OnPropertyChanged(nameof(Link));
             }
         }
     }

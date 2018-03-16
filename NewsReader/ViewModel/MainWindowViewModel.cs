@@ -23,7 +23,7 @@ namespace NewsReader.ViewModel
             get { return _isConfigurationControlVisible; }
             set {
                 _isConfigurationControlVisible = value;
-                OnPropertyChanged("IsConfigurationControlVisible");
+                OnPropertyChanged(nameof(IsConfigurationControlVisible));
             }
         
         }
@@ -35,7 +35,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _isBookmarkControlVisible = value;
-                OnPropertyChanged("IsBookmarkControlVisible");
+                OnPropertyChanged(nameof(IsBookmarkControlVisible));
             }
 
         }
@@ -46,7 +46,7 @@ namespace NewsReader.ViewModel
             get { return _lastUpdate; }
             set {
                 _lastUpdate = value;
-                OnPropertyChanged("LastUpdate");
+                OnPropertyChanged(nameof(LastUpdate));
             }
         }
 
@@ -57,7 +57,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _isRefreshing = value;
-                OnPropertyChanged("IsRefreshing");
+                OnPropertyChanged(nameof(IsRefreshing));
             }
         }
 
@@ -141,7 +141,7 @@ namespace NewsReader.ViewModel
                         foreach(var x in FeedList.ToList()){
                             if (x.IsMarked) BookmarkList.Add(x);
                         }
-                        OnPropertyChanged("BookmarkList");
+                        OnPropertyChanged(nameof(BookmarkList));
                     }
                 });
             }
@@ -167,7 +167,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.General] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_General");
+                OnPropertyChanged(nameof(TabVisibility_General));
             } 
         }   
         public bool TabVisibility_Sport
@@ -177,7 +177,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.Sport] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_Sport");
+                OnPropertyChanged(nameof(TabVisibility_Sport));
             }
         }
         public bool TabVisibility_Technology
@@ -187,7 +187,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.Technology] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_Technology");
+                OnPropertyChanged(nameof(TabVisibility_Technology));
             }
         }
         public bool TabVisibility_Health
@@ -197,7 +197,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.Health] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_Health");
+                OnPropertyChanged(nameof(TabVisibility_Health));
             }
         }
         public bool TabVisibility_Economy
@@ -207,7 +207,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.Economy] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_Economy");
+                OnPropertyChanged(nameof(TabVisibility_Economy));
             }
         }
         public bool TabVisibility_Career
@@ -217,7 +217,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.Career] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_Career");
+                OnPropertyChanged(nameof(TabVisibility_Career));
             }
         }
         public bool TabVisibility_International
@@ -227,7 +227,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.International] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_International");
+                OnPropertyChanged(nameof(TabVisibility_International));
             }
         }
         public bool TabVisibility_Politics
@@ -237,7 +237,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.Politics] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_Politics");
+                OnPropertyChanged(nameof(TabVisibility_Politics));
             }
         }
         public bool TabVisibility_Cultural
@@ -247,7 +247,7 @@ namespace NewsReader.ViewModel
             {
                 _visibleCategories[RSSCategory.Cultural] = value;
                 OnChange_RSSCategory();
-                OnPropertyChanged("TabVisibility_Cultural");
+                OnPropertyChanged(nameof(TabVisibility_Cultural));
             }
         }
 
@@ -262,7 +262,7 @@ namespace NewsReader.ViewModel
             set
             {
                 _sourceList_SelectedItem = value;
-                OnPropertyChanged("SourceList_SelectedItem");
+                OnPropertyChanged(nameof(SourceList_SelectedItem));
             }
         }
 
