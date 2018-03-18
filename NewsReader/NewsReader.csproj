@@ -146,6 +146,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converter\InverseBooleanVisibilityConverter.cs" />
     <Compile Include="Converter\CountGeneralListVisibilityConverter.cs" />
     <Compile Include="Converter\CountTechnologyListVisibilityConverter.cs" />
     <Compile Include="Converter\CountHealthListVisibilityConverter.cs" />
