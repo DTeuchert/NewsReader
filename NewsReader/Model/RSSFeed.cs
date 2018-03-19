@@ -38,7 +38,7 @@ namespace NewsReader.Model
     public class RSSFeed : BaseModel, IComparable<RSSFeed>
     {
         public string Guid { get; set; }
-        public string Source { get; set; }
+        public RSSLink Source { get; set; }
         public DateTimeOffset Date { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

@@ -142,6 +142,15 @@ namespace NewsReader.Resources.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Toggle visibility of the RSS feed.
+        /// </summary>
+        public static string btn_enable_rss_tooltip {
+            get {
+                return ResourceManager.GetString("btn_enable_rss_tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add a new link to the RSS feed:.
         /// </summary>
         public static string dialog_add_text {

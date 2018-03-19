@@ -111,6 +111,17 @@ namespace NewsReader.ViewModel
                 });
             }
         }
+        public ICommand IsEnabledRssLinkCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    SourceList_SelectedItem.IsEnabled = !SourceList_SelectedItem.IsEnabled;
+                    ConfigurationService.Links = SourceList;
+                });
+            }
+        }
         public ICommand RefreshCommand
         {
             get
@@ -305,11 +316,10 @@ namespace NewsReader.ViewModel
         }
         private void updateFeed(RSSLink RSSLink)
         {
-            if (FeedList == null) { return; };
+            if (FeedList == null) { return; }
                     
             try
             {
-
                 using (var reader = XmlReader.Create(RSSLink.Link.ToString()))
                 {
                     var feed = SyndicationFeed.Load(reader);
@@ -322,7 +332,7 @@ namespace NewsReader.ViewModel
                             var news = new RSSFeed
                             {
                                 Guid = item.Id,
-                                Source = feed.Authors?.FirstOrDefault()?.Name ?? RSSLink.Title,
+                                Source = RSSLink,
                                 Date = item.PublishDate,
                                 Title = item.Title.Text,
                                 Link = item.Links[0].Uri

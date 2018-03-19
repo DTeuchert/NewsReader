@@ -144,6 +144,9 @@
   <data name="btn_edit_rss_tooltip" xml:space="preserve">
     <value>Edit RSS feed</value>
   </data>
+  <data name="btn_enable_rss_tooltip" xml:space="preserve">
+    <value>Toggle visibility of the RSS feed</value>
+  </data>
   <data name="dialog_add_text" xml:space="preserve">
     <value>Add a new link to the RSS feed:</value>
   </data>
