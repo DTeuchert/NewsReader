@@ -333,7 +333,7 @@ namespace NewsReader.ViewModel
                             {
                                 Guid = item.Id,
                                 Source = RSSLink,
-                                Date = item.PublishDate,
+                                Date = item.PublishDate.UtcDateTime,
                                 Title = item.Title.Text,
                                 Link = item.Links[0].Uri
                             };

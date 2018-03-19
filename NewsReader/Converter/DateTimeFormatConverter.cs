@@ -8,7 +8,7 @@ namespace NewsReader.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((DateTimeOffset)value).ToString("ddd, dd. MMMM yyyy - H:mm", Util.TranslationSource.Instance.CurrentCulture);;
+            return ((DateTimeOffset)value).LocalDateTime.ToString("ddd, dd. MMMM yyyy - H:mm", Util.TranslationSource.Instance.CurrentCulture);;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
