@@ -65,26 +65,21 @@ namespace NewsReader.ViewModel
         public RSSFeedCollection BookmarkList { get; set; }
         public RSSFeedCollection FeedList { get; set; }
 
-        public ICommand AddRssLinkCommand
-        {
-            get
-            {
-                return new RelayCommand(() =>
+        private ICommand _addRssLinkCommand;
+        public ICommand AddRssLinkCommand => _addRssLinkCommand ??
+            (_addRssLinkCommand = new RelayCommand(() =>
                 {
-                    var changeRSSLinkWindow = new RssLinkAddWindow 
+                    var changeRSSLinkWindow = new RssLinkAddWindow
                     {
                         RSSLinkList = SourceList
                     };
                     changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRSSLinkWindow.ShowDialog();
-                });
-            }
-        }
-        public ICommand EditRssLinkCommand
-        {
-            get
-            {
-                return new RelayCommand(() =>
+                }));
+
+        private ICommand _editRssLinkCommand;
+        public ICommand EditRssLinkCommand => _editRssLinkCommand ??
+            (_editRssLinkCommand = new RelayCommand(() =>
                 {
                     var changeRSSLinkWindow = new RssLinkEditWindow
                     {
@@ -92,14 +87,11 @@ namespace NewsReader.ViewModel
                     };
                     changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRSSLinkWindow.ShowDialog();
-                });
-            }
-        }
-        public ICommand RemoveRssLinkCommand
-        {
-            get
-            {
-                return new RelayCommand(() =>
+                }));
+
+        private ICommand _removeRssLinkCommand;
+        public ICommand RemoveRssLinkCommand => _removeRssLinkCommand ??
+            (_removeRssLinkCommand = new RelayCommand(() =>
                 {
                     var changeRSSLinkWindow = new RssLinkRemoveWindow
                     {
@@ -108,55 +100,42 @@ namespace NewsReader.ViewModel
                     };
                     changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRSSLinkWindow.ShowDialog();
-                });
-            }
-        }
-        public ICommand IsEnabledRssLinkCommand
-        {
-            get
-            {
-                return new RelayCommand(() =>
+                }));
+
+        private ICommand _isEnabledRssLinkCommand;
+        public ICommand IsEnabledRssLinkCommand => _isEnabledRssLinkCommand ??
+            (_isEnabledRssLinkCommand = new RelayCommand(() =>
                 {
                     SourceList_SelectedItem.IsEnabled = !SourceList_SelectedItem.IsEnabled;
                     ConfigurationService.Links = SourceList;
-                });
-            }
-        }
-        public ICommand RefreshCommand
-        {
-            get
-            {
-                return new RelayCommand(updateFeedList);
-            }
-        }
-        public ICommand SettingsCommand
-        {
-            get
-            {
-                return new RelayCommand(() =>
+                }));
+
+        private ICommand _refreshCommand;
+        public ICommand RefreshCommand => _refreshCommand ??
+            (_refreshCommand = new RelayCommand(() => updateFeedList()));
+
+        private ICommand _settingsCommand;
+        public ICommand SettingsCommand => _settingsCommand ??
+            (_settingsCommand = new RelayCommand(() =>
                 {
                     IsConfigurationControlVisible = !IsConfigurationControlVisible;
-                });
-            }
-        }
-        public ICommand BookmarkCommand
-        {
-            get
-            {
-                return new RelayCommand(() =>
-                {
-                    IsBookmarkControlVisible = !IsBookmarkControlVisible;
-                    if (IsBookmarkControlVisible)
-                    {
-                        BookmarkList.Clear();
-                        foreach(var x in FeedList.ToList()){
-                            if (x.IsMarked) BookmarkList.Add(x);
-                        }
-                        OnPropertyChanged(nameof(BookmarkList));
-                    }
-                });
-            }
-        }
+                }));
+
+        public ICommand _bookmarkCommand;
+        public ICommand BookmarkCommand => _bookmarkCommand ??
+            (_bookmarkCommand = new RelayCommand(() =>
+               {
+                   IsBookmarkControlVisible = !IsBookmarkControlVisible;
+                   if (IsBookmarkControlVisible)
+                   {
+                       BookmarkList.Clear();
+                       foreach (var x in FeedList.ToList())
+                       {
+                           if (x.IsMarked) BookmarkList.Add(x);
+                       }
+                       OnPropertyChanged(nameof(BookmarkList));
+                   }
+               }));
 
         private Dictionary<RSSCategory, bool> _visibleCategories = new Dictionary<RSSCategory, bool>
         {
