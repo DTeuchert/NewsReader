@@ -12,7 +12,7 @@ namespace NewsReader.Converter
         {
             return (bool)value 
                 ? (SolidColorBrush)Application.Current.Resources["LstBox_Background_HasSeen"] 
-                : (SolidColorBrush)Application.Current.Resources["LstBox_Background_HasNotSeen"];
+                : (SolidColorBrush)Application.Current.Resources["ApplicationHighlightColor"];
             
         }
 
