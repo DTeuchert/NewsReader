@@ -1,4 +1,5 @@
 ﻿using NewsReader.Model;
+using NewsReader.Util;
 using NewsReader.Model.Enum;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace NewsReader.Util
+namespace NewsReader.Service
 {
     class ConfigurationService
     {

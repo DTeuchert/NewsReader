@@ -13,7 +13,7 @@ namespace NewsReader.View
         }
         private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Util.LocalizationService.SetLanguage(((ComboBoxItem)e.AddedItems[0]).Uid);
+            Service.LocalizationService.SetLanguage(((ComboBoxItem)e.AddedItems[0]).Uid);
         }
     }
 }

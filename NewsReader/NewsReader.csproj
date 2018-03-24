@@ -189,9 +189,9 @@
     </Compile>
     <Compile Include="Util\DictionaryItem.cs" />
     <Compile Include="Util\LocalizationExtension.cs" />
-    <Compile Include="Util\LocalizationService.cs" />
+    <Compile Include="Service\LocalizationService.cs" />
     <Compile Include="Util\RelayCommand.cs" />
-    <Compile Include="Util\ConfigurationService.cs" />
+    <Compile Include="Service\ConfigurationService.cs" />
     <Compile Include="Util\TranslationSource.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

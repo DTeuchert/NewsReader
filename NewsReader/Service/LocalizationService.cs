@@ -1,4 +1,6 @@
-﻿namespace NewsReader.Util
+﻿using NewsReader.Util;
+
+namespace NewsReader.Service
 {
     class LocalizationService
     {

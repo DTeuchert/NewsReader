@@ -5,11 +5,11 @@ using System.Windows;
 using System.Windows.Input;
 using System.ServiceModel.Syndication;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using NewsReader.Model;
 using NewsReader.Model.Enum;
 using NewsReader.Util;
 using NewsReader.View;
+using NewsReader.Service;
 
 namespace NewsReader.ViewModel
 {
