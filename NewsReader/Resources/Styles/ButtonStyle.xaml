@@ -11,6 +11,8 @@
 
     <Style x:Key="MenuButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+        <Setter Property="BorderBrush" Value="LightGray" />
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -19,14 +21,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <ControlTemplate.Resources>
-                        <Style x:Key="ShadowStyle">
-                            <Setter Property="Control.Foreground" Value="LightGray" />
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Border Name="border" BorderThickness="1" Padding="4,2" BorderBrush="DarkGray" CornerRadius="3" Background="{TemplateBinding Background}">
+                    <Border Name="border" BorderThickness="1" Padding="4,2" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3" Background="{TemplateBinding Background}">
                         <Grid>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="contentShadow" Style="{StaticResource ShadowStyle}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="contentShadow">
                                 <ContentPresenter.RenderTransform>
                                     <TranslateTransform X="1.0" Y="1.0" />
                                 </ContentPresenter.RenderTransform>
@@ -34,54 +31,67 @@
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="content"/>
                         </Grid>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationHighlightColor}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="Beige" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
     <Style x:Key="MenuToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+        <Setter Property="BorderBrush" Value="LightGray" />
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
-        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Width" Value="32"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <ControlTemplate.Resources>
-                        <Style x:Key="ShadowStyle">
-                            <Setter Property="Control.Foreground" Value="LightGray" />
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Border Name="border" BorderThickness="1" Padding="4,2" BorderBrush="DarkGray" CornerRadius="3" Background="{TemplateBinding Background}">
+                    <Border Name="border" BorderThickness="1" Padding="4,2" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="3" Background="{TemplateBinding Background}">
                         <Grid>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="contentShadow" Style="{StaticResource ShadowStyle}">
-                                <ContentPresenter.RenderTransform>
-                                    <TranslateTransform X="1.0" Y="1.0" />
-                                </ContentPresenter.RenderTransform>
-                            </ContentPresenter>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Name="content"/>
                         </Grid>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsChecked" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationHighlightColor}" />
+                            <Setter Property="BorderBrush" Value="{StaticResource ApplicationHighlightColor}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsChecked" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationHighlightColor}" />
+                            <Setter Property="BorderBrush" Value="{StaticResource ApplicationHighlightColor}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                                <Condition Property="IsChecked" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationHighlightColor}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"/>
+                                <Condition Property="IsChecked" Value="False"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+                            <Setter Property="BorderBrush" Value="LightGray" />
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="Beige" />
-            </Trigger>
-            <Trigger Property="ToggleButton.IsChecked" Value="True">
-                <Setter Property="Background" Value="Beige" />
-            </Trigger>
-            <Trigger Property="ToggleButton.IsChecked" Value="False">
-                <Setter Property="Background" Value="Transparent" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="MenuViewboxStyle" TargetType="{x:Type Viewbox}">
@@ -119,5 +129,34 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="ConfigurationButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="32" />
+        <Setter Property="Margin" Value="3" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="Foreground" Value="{StaticResource IconColor}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <Grid>
+                            <ContentPresenter Content="{TemplateBinding Content}" 
+                                              Margin="{TemplateBinding Margin}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationHighlightColor}" />
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource ApplicationHighlightColor}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 </ResourceDictionary>

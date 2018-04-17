@@ -3,7 +3,7 @@
 
     <SolidColorBrush x:Key="ApplicationBackgroundColor">#FFFFFF</SolidColorBrush>
     <SolidColorBrush x:Key="ApplicationForgroundColor">#000000</SolidColorBrush>
-    <SolidColorBrush x:Key="ApplicationHighlightColor">#0066cc</SolidColorBrush>
+    <SolidColorBrush x:Key="ApplicationHighlightColor">#c3a26e</SolidColorBrush>
 
     <SolidColorBrush x:Key="IconColor">#606060</SolidColorBrush>
     <SolidColorBrush x:Key="WindowButtonColor">#606060</SolidColorBrush>

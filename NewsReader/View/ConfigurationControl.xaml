@@ -30,7 +30,7 @@
             <Label Grid.Row="0"  
                    Foreground="{StaticResource ApplicationForgroundColor}" FontSize="16" 
                    Content="{util:Localization settings_language}"/>
-            
+
             <ComboBox Grid.Row="1" SelectionChanged="LanguageComboBox_SelectionChanged">
                 <ComboBoxItem x:Uid="de-DE" IsSelected="{Binding Converter={StaticResource IsSelectedLanguageConverter}, ConverterParameter='de-DE', Mode=OneWay}">Deutsch</ComboBoxItem>
                 <ComboBoxItem x:Uid="en-US" IsSelected="{Binding Converter={StaticResource IsSelectedLanguageConverter}, ConverterParameter='en-US', Mode=OneWay}">Englisch</ComboBoxItem>
@@ -51,17 +51,18 @@
                    Content="{util:Localization settings_rss}"/>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0"  Padding="3"
+                <Button x:Name="btn_add"
+                        Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_add_rss_tooltip}"
                         Command="{Binding AddRssLinkCommand}" >
                     <Viewbox>
                         <Grid>
                             <Grid Width="256" Height="256" Visibility="Visible">
                                 <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" 
-                                      Stretch="Fill" Fill="{StaticResource IconColor}" Visibility="Visible" />
+                                      Stretch="Fill" Fill="{Binding Foreground, ElementName=btn_add}" Visibility="Visible" />
                             </Grid>
                             <Path Data="M116.985618665814,0L181.145370557904,0 181.145370557904,121.251022338867 298.130981519818,121.251022338867 298.130981519818,187.749847412109 181.145370557904,187.749847412109 181.145370557904,309 116.985618665814,309 116.985618665814,187.749847412109 0,187.749847412109 0,121.251022338867 116.985618665814,121.251022338867z" 
-                                  Stretch="Uniform" Fill="{StaticResource IconColor}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                  Stretch="Uniform" Fill="{Binding Foreground, ElementName=btn_add}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <TransformGroup.Children>
@@ -74,7 +75,8 @@
                         </Grid>
                     </Viewbox>
                 </Button>
-                <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0" Padding="3"
+                <Button x:Name="btn_edit"
+                        Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_edit_rss_tooltip}"
                         Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
                         Command="{Binding EditRssLinkCommand}">
@@ -83,10 +85,10 @@
                         <Grid>
                             <Grid Width="256" Height="256" Visibility="Visible">
                                 <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" 
-                                      Stretch="Fill" Fill="{StaticResource IconColor}" Visibility="Visible" />
+                                      Stretch="Fill" Fill="{Binding Foreground, ElementName=btn_edit}" Visibility="Visible" />
                             </Grid>
                             <Path Data="M0,44.439791L18.98951,54.569246 0.47998798,62.66881z M17.428029,12.359973L36.955557,23.568769 21.957478,49.686174 20.847757,46.346189 15.11851,45.756407 14.138656,42.166935 8.5292659,41.966761 6.9493899,38.037481 2.4399572,38.477377z M26.812517,0.0009765625C27.350616,-0.012230873,27.875986,0.10826397,28.348372,0.3782568L42.175028,8.3180408C43.85462,9.2780154,44.234529,11.777948,43.02482,13.89789L41.375219,16.767812 21.460039,5.3381228 23.10964,2.4582005C23.979116,0.941679,25.437378,0.034730911,26.812517,0.0009765625z" 
-                                  Stretch="Uniform" Fill="{StaticResource IconColor}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                  Stretch="Uniform" Fill="{Binding Foreground, ElementName=btn_edit}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <TransformGroup.Children>
@@ -99,7 +101,8 @@
                         </Grid>
                     </Viewbox>
                 </Button>
-                <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0" Padding="3"
+                <Button x:Name="btn_delete"
+                        Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_delete_rss_tooltip}"
                         Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
                         Command="{Binding RemoveRssLinkCommand}">
@@ -107,10 +110,10 @@
                         <Grid>
                             <Grid Width="256" Height="256" Visibility="Visible">
                                 <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" 
-                                      Stretch="Fill" Fill="{StaticResource IconColor}" Visibility="Visible" />
+                                      Stretch="Fill" Fill="{Binding Foreground, ElementName=btn_delete}" Visibility="Visible" />
                             </Grid>
                             <Path Data="M12.367564,9.5351901L12.367564,18.86957 14.301122,18.86957 14.301122,9.5351901z M7.5301319,9.5351901L7.5301319,18.86957 9.4637786,18.86957 9.4637786,9.5351901z M2.6927693,9.5351901L2.6927693,18.86957 4.6264163,18.86957 4.6264163,9.5351901z M0,7.3790004L16.994,7.3790004 16.453585,21.333001 0.54035997,21.333001z M5.7944208,0.90623426L5.7944208,2.1835518 11.19953,2.1835518 11.19953,0.90623426z M4.6264163,0L12.367564,0 12.367564,2.1835518 16.994,2.1835518 16.994,5.1470001 0,5.1470001 0,2.1835518 4.6264163,2.1835518z" 
-                                  Stretch="Uniform" Fill="{StaticResource IconColor}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                  Stretch="Uniform" Fill="{Binding Foreground, ElementName=btn_delete}" Width="138" Height="138" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <TransformGroup.Children>
@@ -123,7 +126,8 @@
                         </Grid>
                     </Viewbox>
                 </Button>
-                <Button Width="32" Margin="3" Background="Transparent" BorderThickness="0" Padding="3"
+                <Button x:Name="btn_enable"
+                        Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_enable_rss_tooltip}"
                         Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
                         Command="{Binding IsEnabledRssLinkCommand}">
@@ -131,10 +135,10 @@
                         <Grid>
                             <Grid Width="128" Height="128" Visibility="Visible">
                                 <Path Data="M50.5,4.7500001C25.232973,4.75 4.75,25.232973 4.7500001,50.5 4.75,75.767029 25.232973,96.25 50.5,96.25 75.767029,96.25 96.25,75.767029 96.25,50.5 96.25,25.232973 75.767029,4.75 50.5,4.7500001z M50.5,0C78.390381,0 101,22.609621 101,50.5 101,78.390381 78.390381,101 50.5,101 22.609621,101 0,78.390381 0,50.5 0,22.609621 22.609621,0 50.5,0z" 
-                                      Stretch="Fill" Fill="{StaticResource IconColor}" Visibility="Visible" />
+                                      Stretch="Fill" Fill="{Binding Foreground, ElementName=btn_enable}" Visibility="Visible" />
                             </Grid>
                             <Path Data="M21.12103,12.237971C21.335028,12.877969 21.548026,13.517968 21.548026,14.157965 21.548026,17.143957 19.202039,19.490949 16.215056,19.490949 15.57506,19.490949 14.935063,19.27795 14.508065,19.27795z M25.81403,7.3309757C29.227027,9.8909775,31.361024,13.30498,31.574023,13.51798L32.001023,13.94498 31.788024,14.584981C31.361024,15.011982,25.601029,24.397987,16.428039,24.824987L15.78804,24.824987C13.655042,24.824987,11.948044,24.397987,10.028046,23.757988L11.521044,22.050987C13.014043,22.690986 14.508041,22.903986 16.00104,22.903986 23.041034,22.476986 28.161027,16.076982 29.441025,14.15698 28.588027,13.09098 26.881028,10.743978 24.32103,8.8239771z M16.426982,5.6249649C9.5999897,5.6249649 4.0539956,12.024965 2.3469974,14.157964 3.1743091,15.191621 5.0020354,17.626423 7.6365283,19.523155L7.8265727,19.657356 11.243305,16.096071 11.228206,16.050575C11.044074,15.487661 10.880996,14.904362 10.880996,14.157985 10.880996,11.171974 13.226988,8.8249661 16.213976,8.8249661 16.693974,8.8249661 17.173972,8.9453417 17.65397,9.095389L17.887789,9.1704804 20.564341,6.3806907 20.34706,6.3190042C19.040496,5.9518868,17.733356,5.6249649,16.426982,5.6249649z M26.686042,0L28.129035,1.3850106 3.8530284,26.688001 2.4100349,25.303053 6.369997,21.175556 6.0638354,20.936624C2.6296016,18.20261,0.42699957,14.792308,0.42699993,14.585965L0,13.945964 0.42699993,13.518964C0.63999927,13.091964 7.2539923,3.4919652 16.426982,3.491965 18.426667,3.4919652 20.239146,4.0544654 22.039923,4.8276278L22.050099,4.8320748z" 
-                                  Stretch="Uniform" Fill="{StaticResource IconColor}" Width="96" Height="96" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                                  Stretch="Uniform" Fill="{Binding Foreground, ElementName=btn_enable}" Width="96" Height="96" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <TransformGroup.Children>
