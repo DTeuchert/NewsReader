@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:util="clr-namespace:NewsReader.Util"
         Background="{StaticResource ApplicationBackgroundColor}"
-        Title="NewsReader" Height="200" Width="500">
+        Title="NewsReader" Height="220" Width="500">
     <Window.Icon>
         <DrawingImage>
             <DrawingImage.Drawing>
@@ -41,7 +41,8 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1">
             <TextBlock Text="{util:Localization dialog_title}"/>
-            <TextBox Name="newLinkTextBox_Titel"
+            <TextBox 
+                Name="newLinkTextBox_Titel"
                  Grid.Column="1" Grid.Row="1"
                  MinWidth="250"
                  ToolTipService.ToolTip="{util:Localization dialog_title_tooltip}"/>
