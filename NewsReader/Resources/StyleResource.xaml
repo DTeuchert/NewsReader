@@ -7,6 +7,7 @@
         <ResourceDictionary Source="Styles/TextBoxStyle.xaml"/>
         <ResourceDictionary Source="Styles/WindowStyle.xaml"/>
         <ResourceDictionary Source="Styles/ButtonStyle.xaml"/>
+        <ResourceDictionary Source="Styles/HyperlinkStyle.xaml"/>
         <ResourceDictionary Source="Styles/TabControlStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     

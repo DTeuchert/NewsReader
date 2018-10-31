@@ -1,15 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Xml;
-using System.Windows;
-using System.Windows.Input;
-using System.ServiceModel.Syndication;
-using System.Collections.Generic;
-using NewsReader.Model;
+﻿using NewsReader.Model;
 using NewsReader.Model.Enum;
+using NewsReader.Service;
 using NewsReader.Util;
 using NewsReader.View;
-using NewsReader.Service;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.ServiceModel.Syndication;
+using System.Windows;
+using System.Windows.Input;
+using System.Xml;
 
 namespace NewsReader.ViewModel
 {

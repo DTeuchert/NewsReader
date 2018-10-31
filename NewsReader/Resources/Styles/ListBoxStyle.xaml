@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     >
 
     <Style x:Key="ListItemButtonStyle" TargetType="{x:Type Button}">
@@ -56,18 +56,15 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <DockPanel Grid.Row="0" Margin="3">
-                                <TextBlock FontWeight="Bold" FontSize="13" TextWrapping="Wrap" Text="{Binding Title}" />
+                                <TextBlock FontWeight="Bold" FontSize="13" TextWrapping="Wrap" >
+                                    <Hyperlink Command="{Binding OpenLink}"> 
+                                        <Hyperlink.Inlines>
+                                            <Run Text="{Binding Title}"/>
+                                       </Hyperlink.Inlines>
+                                   </Hyperlink>
+                                </TextBlock>
                                 <StackPanel HorizontalAlignment="Right"
                                                 Orientation="Horizontal">
-                                    <Button Style="{StaticResource ListItemButtonStyle}"
-                                                Command="{Binding OpenLink}">
-                                        <Viewbox>
-                                            <Path Data="M194.946686588228,0L285.305023990572,101.774623095582 194.946686588228,191.501002490113 194.946686588228,143.610926806519C194.946686588228,143.610926806519 39.0003059729934,95.7808639403083 0,191.501002490113 0,167.585963427613 14.1771210059524,47.8907958861091 194.946686588228,47.8907958861091z" 
-                                                      Stretch="Uniform" 
-                                                      Fill="{StaticResource ApplicationHighlightColor}" 
-                                                      Width="16" Height="16"/>
-                                        </Viewbox>
-                                    </Button>
                                     <Button Style="{StaticResource ListItemButtonStyle}"
                                                 Command="{Binding ChangeIsMarked}">
                                         <Viewbox>
