@@ -11,10 +11,14 @@ namespace NewsReader.Service
 {
     class ConfigurationService
     {
-        private const string configurationFile = @"Resources\Config.xml";
+        private const string configurationFile = @"Config.xml";
 
         private static void SaveConfiguration(ConfigurationModel configuration)
         {
+            if (!File.Exists(configurationFile))
+            {
+                File.Create(configurationFile).Dispose();
+            }
             using (var writer = new StreamWriter(configurationFile))
             {
                 var xs = new XmlSerializer(typeof(ConfigurationModel));

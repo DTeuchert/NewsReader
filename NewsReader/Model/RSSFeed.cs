@@ -26,13 +26,6 @@ namespace NewsReader.Model
                 Move(IndexOf(item), sortedItemsList.IndexOf(item));
             }
         }
-        //public void Sort()
-        //{
-//            this = new RSSFeedCollection(this.OrderBy(x => x.Date));
-            //this.OrderBy(x => x.Date);
-//            this.ToList().Sort();
-            //this.GroupBy(x => x.Date);
-        //}
     }
 
     public class RSSFeed : BaseModel, IComparable<RSSFeed>
@@ -78,6 +71,30 @@ namespace NewsReader.Model
             }
         }
 
+        private bool _isCollapsed = false;
+        public bool IsCollapsed
+        {
+            get
+            {
+                return _isCollapsed;
+            }
+            set
+            {
+                _isCollapsed = value;
+                OnPropertyChanged(nameof(IsCollapsed));
+            }
+        }
+
+        public ICommand ChangeIsCollapsed
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    IsCollapsed = !IsCollapsed;
+                });
+            }
+        }
         public ICommand ChangeIsMarked
         {
             get
