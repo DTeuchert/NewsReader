@@ -41,5 +41,17 @@ namespace NewsReader.Model
                 OnPropertyChanged(nameof(IsEnabled));
             }
         }
+
+        private bool _isValid = true;
+        public bool IsValid
+        {
+            get { return _isValid; }
+            set
+            {
+                _isValid = value;
+                OnPropertyChanged(nameof(IsValid));
+            }
+        }
+
     }
 }

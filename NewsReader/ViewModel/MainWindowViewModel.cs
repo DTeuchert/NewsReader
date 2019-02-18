@@ -286,20 +286,20 @@ namespace NewsReader.ViewModel
             IsRefreshing = true;
             foreach (var feed in SourceList)
             {
-                updateFeed(feed);
+                UpdateFeed(feed);
             }
             FeedList.ToList().Sort();
 
             LastUpdate = DateTimeOffset.Now;
             IsRefreshing = false;
         }
-        private void updateFeed(RSSLink RSSLink)
+        private void UpdateFeed(RSSLink rssLink)
         {
             if (FeedList == null) { return; }
                     
             try
             {
-                using (var reader = XmlReader.Create(RSSLink.Link.ToString()))
+                using (var reader = XmlReader.Create(rssLink.Link.ToString()))
                 {
                     var feed = SyndicationFeed.Load(reader);
                     if (feed == null) return;
@@ -311,7 +311,7 @@ namespace NewsReader.ViewModel
                             var news = new RSSFeed
                             {
                                 Guid = item.Id,
-                                Source = RSSLink,
+                                Source = rssLink,
                                 Date = item.PublishDate.UtcDateTime,
                                 Title = item.Title.Text,
                                 Link = item.Links[0].Uri
@@ -349,7 +349,7 @@ namespace NewsReader.ViewModel
             }
             catch(Exception e)
             {
-                Console.WriteLine(e);
+                rssLink.IsValid = false;
             }
         }
     }
