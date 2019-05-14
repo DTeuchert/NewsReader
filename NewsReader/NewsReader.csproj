@@ -183,7 +183,7 @@
     <Compile Include="Converter\ListBoxVisibilityConverter.cs" />
     <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\ConfigurationModel.cs" />
-    <Compile Include="Model\Enum\RSSCategory.cs" />
+    <Compile Include="Model\RssCategory.cs" />
     <Compile Include="Model\RSSFeed.cs" />
     <Compile Include="Model\RSSLink.cs" />
     <Compile Include="Resources\Strings\Resources.Designer.cs">
@@ -279,6 +279,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

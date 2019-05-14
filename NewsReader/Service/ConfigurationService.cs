@@ -1,6 +1,6 @@
 ﻿using NewsReader.Model;
 using NewsReader.Util;
-using NewsReader.Model.Enum;
+using NewsReader.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -71,7 +71,7 @@ namespace NewsReader.Service
             }
         }
 
-        public static Dictionary<RSSCategory, bool> VisibleCategories
+        public static Dictionary<RssCategory, bool> VisibleCategories
         {
             get {
                 return (LoadConfiguration()).VisibleCategories
@@ -104,15 +104,15 @@ namespace NewsReader.Service
                     },
                     VisibleCategories = new List<DictionaryItem>
                     {
-                        new DictionaryItem{ id = RSSCategory.General, value = true },
-                        new DictionaryItem{ id = RSSCategory.Sport, value = true },
-                        new DictionaryItem{ id = RSSCategory.Technology, value = true },
-                        new DictionaryItem{ id = RSSCategory.Health, value = true },
-                        new DictionaryItem{ id = RSSCategory.Economy, value = true },
-                        new DictionaryItem{ id = RSSCategory.Career, value = true },
-                        new DictionaryItem{ id = RSSCategory.International, value = true },
-                        new DictionaryItem{ id = RSSCategory.Politics, value = true },
-                        new DictionaryItem{ id = RSSCategory.Cultural, value = true },
+                        new DictionaryItem{ id = RssCategory.General, value = true },
+                        new DictionaryItem{ id = RssCategory.Sport, value = true },
+                        new DictionaryItem{ id = RssCategory.Technology, value = true },
+                        new DictionaryItem{ id = RssCategory.Health, value = true },
+                        new DictionaryItem{ id = RssCategory.Economy, value = true },
+                        new DictionaryItem{ id = RssCategory.Career, value = true },
+                        new DictionaryItem{ id = RssCategory.International, value = true },
+                        new DictionaryItem{ id = RssCategory.Politics, value = true },
+                        new DictionaryItem{ id = RssCategory.Cultural, value = true },
                     }
                 };
             }

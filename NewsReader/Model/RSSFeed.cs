@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
 using System.Linq;
-using NewsReader.Model.Enum;
+using NewsReader.Models;
 using NewsReader.Util;
 
 namespace NewsReader.Model
@@ -38,8 +38,8 @@ namespace NewsReader.Model
         public Uri Link { get; set; }
         public Uri Thumbnail { get; set; }
 
-        private List<RSSCategory> _category = new List<RSSCategory>();
-        public List<RSSCategory> Category { 
+        private List<RssCategory> _category = new List<RssCategory>();
+        public List<RssCategory> Category { 
             get { return _category; } 
         }
 

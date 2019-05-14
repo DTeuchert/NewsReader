@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 using NewsReader.Model;
-using NewsReader.Model.Enum;
+using NewsReader.Models;
 
 namespace NewsReader.Converter
 {

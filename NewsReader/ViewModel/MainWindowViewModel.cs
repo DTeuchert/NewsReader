@@ -1,5 +1,5 @@
 ﻿using NewsReader.Model;
-using NewsReader.Model.Enum;
+using NewsReader.Models;
 using NewsReader.Service;
 using NewsReader.Util;
 using NewsReader.View;
@@ -137,105 +137,105 @@ namespace NewsReader.ViewModel
                    }
                }));
 
-        private Dictionary<RSSCategory, bool> _visibleCategories = new Dictionary<RSSCategory, bool>
+        private Dictionary<RssCategory, bool> _visibleCategories = new Dictionary<RssCategory, bool>
         {
-            { RSSCategory.General, true },
-            { RSSCategory.Sport, true },
-            { RSSCategory.Technology, true },
-            { RSSCategory.Health, true },
-            { RSSCategory.Economy, true },
-            { RSSCategory.Career, true },
-            { RSSCategory.International, true },
-            { RSSCategory.Politics, true },
-            { RSSCategory.Cultural, true }
+            { RssCategory.General, true },
+            { RssCategory.Sport, true },
+            { RssCategory.Technology, true },
+            { RssCategory.Health, true },
+            { RssCategory.Economy, true },
+            { RssCategory.Career, true },
+            { RssCategory.International, true },
+            { RssCategory.Politics, true },
+            { RssCategory.Cultural, true }
         };
                 
         public bool TabVisibility_General 
         {
-            get { return _visibleCategories[RSSCategory.General]; }
+            get { return _visibleCategories[RssCategory.General]; }
             set 
             {
-                _visibleCategories[RSSCategory.General] = value;
+                _visibleCategories[RssCategory.General] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_General));
             } 
         }   
         public bool TabVisibility_Sport
         {
-            get { return _visibleCategories[RSSCategory.Sport]; }
+            get { return _visibleCategories[RssCategory.Sport]; }
             set
             {
-                _visibleCategories[RSSCategory.Sport] = value;
+                _visibleCategories[RssCategory.Sport] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_Sport));
             }
         }
         public bool TabVisibility_Technology
         {
-            get { return _visibleCategories[RSSCategory.Technology]; }
+            get { return _visibleCategories[RssCategory.Technology]; }
             set
             {
-                _visibleCategories[RSSCategory.Technology] = value;
+                _visibleCategories[RssCategory.Technology] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_Technology));
             }
         }
         public bool TabVisibility_Health
         {
-            get { return _visibleCategories[RSSCategory.Health]; }
+            get { return _visibleCategories[RssCategory.Health]; }
             set
             {
-                _visibleCategories[RSSCategory.Health] = value;
+                _visibleCategories[RssCategory.Health] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_Health));
             }
         }
         public bool TabVisibility_Economy
         {
-            get { return _visibleCategories[RSSCategory.Economy]; }
+            get { return _visibleCategories[RssCategory.Economy]; }
             set
             {
-                _visibleCategories[RSSCategory.Economy] = value;
+                _visibleCategories[RssCategory.Economy] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_Economy));
             }
         }
         public bool TabVisibility_Career
         {
-            get { return _visibleCategories[RSSCategory.Career]; }
+            get { return _visibleCategories[RssCategory.Career]; }
             set
             {
-                _visibleCategories[RSSCategory.Career] = value;
+                _visibleCategories[RssCategory.Career] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_Career));
             }
         }
         public bool TabVisibility_International
         {
-            get { return _visibleCategories[RSSCategory.International]; }
+            get { return _visibleCategories[RssCategory.International]; }
             set
             {
-                _visibleCategories[RSSCategory.International] = value;
+                _visibleCategories[RssCategory.International] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_International));
             }
         }
         public bool TabVisibility_Politics
         {
-            get { return _visibleCategories[RSSCategory.Politics]; }
+            get { return _visibleCategories[RssCategory.Politics]; }
             set
             {
-                _visibleCategories[RSSCategory.Politics] = value;
+                _visibleCategories[RssCategory.Politics] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_Politics));
             }
         }
         public bool TabVisibility_Cultural
         {
-            get { return _visibleCategories[RSSCategory.Cultural]; }
+            get { return _visibleCategories[RssCategory.Cultural]; }
             set
             {
-                _visibleCategories[RSSCategory.Cultural] = value;
+                _visibleCategories[RssCategory.Cultural] = value;
                 OnChange_RSSCategory();
                 OnPropertyChanged(nameof(TabVisibility_Cultural));
             }
@@ -320,26 +320,26 @@ namespace NewsReader.ViewModel
                             if (item.Summary != null) news.Description = item.Summary.Text;
                             if (item.Links.Count >= 2) news.Thumbnail = item.Links[1].Uri;
 
-                            news.Category.Add(RSSCategory.General);
+                            news.Category.Add(RssCategory.General);
 
                             if (item.Categories.Any(x => 
                                 x.Name.Equals("Sport") || 
-                                x.Name.Equals("Fußball"))) news.Category.Add(RSSCategory.Sport);
+                                x.Name.Equals("Fußball"))) news.Category.Add(RssCategory.Sport);
                             if (item.Categories.Any(x => 
                                 x.Name.Equals("Technology") || 
-                                x.Name.Equals("Digital"))) news.Category.Add(RSSCategory.Technology);
+                                x.Name.Equals("Digital"))) news.Category.Add(RssCategory.Technology);
                             if (item.Categories.Any(x => 
-                                x.Name.Equals("Gesundheit"))) news.Category.Add(RSSCategory.Health);
+                                x.Name.Equals("Gesundheit"))) news.Category.Add(RssCategory.Health);
                             if (item.Categories.Any(x => 
-                                x.Name.Equals("Wirtschaft"))) news.Category.Add(RSSCategory.Economy);
+                                x.Name.Equals("Wirtschaft"))) news.Category.Add(RssCategory.Economy);
                             if (item.Categories.Any(x => 
-                                x.Name.Equals("Karriere"))) news.Category.Add(RSSCategory.Career);
+                                x.Name.Equals("Karriere"))) news.Category.Add(RssCategory.Career);
                             if (item.Categories.Any(x => 
-                                x.Name.Equals("International"))) news.Category.Add(RSSCategory.International);
+                                x.Name.Equals("International"))) news.Category.Add(RssCategory.International);
                             if (item.Categories.Any(x => 
-                                x.Name.Equals("Politik"))) news.Category.Add(RSSCategory.Politics);
+                                x.Name.Equals("Politik"))) news.Category.Add(RssCategory.Politics);
                             if (item.Categories.Any(x => 
-                                x.Name.Equals("Kultur"))) news.Category.Add(RSSCategory.Cultural);
+                                x.Name.Equals("Kultur"))) news.Category.Add(RssCategory.Cultural);
        
                             FeedList.Add(news);
                             _guidList.Add(news.Guid);

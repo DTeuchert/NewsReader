@@ -1,4 +1,4 @@
-﻿using NewsReader.Model.Enum;
+﻿using NewsReader.Models;
 using System.Xml.Serialization;
 
 namespace NewsReader.Util
@@ -6,7 +6,7 @@ namespace NewsReader.Util
     public class DictionaryItem
     {
         [XmlAttribute]
-        public RSSCategory id;
+        public RssCategory id;
 
         [XmlAttribute]
         public bool value;

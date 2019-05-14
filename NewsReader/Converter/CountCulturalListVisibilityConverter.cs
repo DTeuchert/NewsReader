@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
 using NewsReader.Model;
-using NewsReader.Model.Enum;
+using NewsReader.Models;
 
 namespace NewsReader.Converter
 {
@@ -14,7 +14,7 @@ namespace NewsReader.Converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return ((RSSFeedCollection)value == null 
-                || (value as RSSFeedCollection).Count(x => x.Category.Any(y => y == RSSCategory.Cultural)) <= 0)
+                || (value as RSSFeedCollection).Count(x => x.Category.Any(y => y == RssCategory.Cultural)) <= 0)
                 ? Visibility.Visible : Visibility.Hidden;
         }
 
