@@ -6,11 +6,11 @@ using System.Windows.Media;
 
 namespace NewsReader.Converter
 {
-    class BackgroundHasSeenConverter : IValueConverter
+    internal class BackgroundHasSeenConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value 
+            return value != null && (bool)value 
                 ? (SolidColorBrush)Application.Current.Resources["LstBox_Background_HasSeen"] 
                 : (SolidColorBrush)Application.Current.Resources["ApplicationHighlightColor"];
             
