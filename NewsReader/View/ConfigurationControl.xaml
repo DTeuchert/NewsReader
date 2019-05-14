@@ -78,7 +78,7 @@
                 <Button x:Name="btn_edit"
                         Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_edit_rss_tooltip}"
-                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
+                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisibilityConverter}}"
                         Command="{Binding EditRssLinkCommand}">
                     <Viewbox>
 
@@ -104,7 +104,7 @@
                 <Button x:Name="btn_delete"
                         Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_delete_rss_tooltip}"
-                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
+                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisibilityConverter}}"
                         Command="{Binding RemoveRssLinkCommand}">
                     <Viewbox>
                         <Grid>
@@ -129,7 +129,7 @@
                 <Button x:Name="btn_enable"
                         Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_enable_rss_tooltip}"
-                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisivilityConverter}}"
+                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisibilityConverter}}"
                         Command="{Binding IsEnabledRssLinkCommand}">
                     <Viewbox>
                         <Grid>

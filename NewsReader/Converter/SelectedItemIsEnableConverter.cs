@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace NewsReader.Converter
 {
-    class SelectedItemIsEnableConverter : IValueConverter
+    internal class SelectedItemIsEnableConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

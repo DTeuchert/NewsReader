@@ -10,10 +10,10 @@ namespace NewsReader.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value != null && (bool)value 
-                ? (SolidColorBrush)Application.Current.Resources["LstBox_Background_HasSeen"] 
+            return value != null && (bool)value
+                ? (SolidColorBrush)Application.Current.Resources["LstBox_Background_HasSeen"]
                 : (SolidColorBrush)Application.Current.Resources["ApplicationHighlightColor"];
-            
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

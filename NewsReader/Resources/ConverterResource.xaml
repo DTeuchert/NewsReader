@@ -9,7 +9,7 @@
     <converter:SelectedItemIsEnableConverter x:Key="SelectedItemIsEnableConverter" />
     <converter:BooleanVisibilityConverter x:Key="BooleanVisibilityConverter" />
     <converter:InverseBooleanVisibilityConverter x:Key="InverseBooleanVisibilityConverter" />
-    <converter:SelectedItemVisivilityConverter x:Key="SelectedItemVisivilityConverter" />
+    <converter:SelectedItemVisibilityConverter x:Key="SelectedItemVisibilityConverter" />
     <converter:IsSelectedLanguageConverter x:Key="IsSelectedLanguageConverter" />
     <converter:BackgroundHasSeenConverter x:Key="BackgroundHasSeenConverter" />
     <converter:ColorIsMarkedConverter x:Key="ColorIsMarkedConverter" />

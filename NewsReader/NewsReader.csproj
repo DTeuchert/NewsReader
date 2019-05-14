@@ -177,7 +177,7 @@
     <Compile Include="Converter\BooleanVisibilityConverter.cs" />
     <Compile Include="Converter\BackgroundHasSeenConverter.cs" />
     <Compile Include="Converter\IsSelectedLanguageConverter.cs" />
-    <Compile Include="Converter\SelectedItemVisivilityConverter.cs" />
+    <Compile Include="Converter\SelectedItemVisibilityConverter.cs" />
     <Compile Include="Converter\SelectedItemIsEnableConverter.cs" />
     <Compile Include="Converter\DateTimeFormatConverter.cs" />
     <Compile Include="Converter\ListBoxVisibilityConverter.cs" />

@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Windows;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 
 namespace NewsReader.Converter
 {
-    class SelectedItemVisivilityConverter : IValueConverter
+    internal class SelectedItemVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
