@@ -7,15 +7,16 @@ namespace NewsReader.Util
     {
         public event EventHandler CanExecuteChanged
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
-        private readonly Action methodToExecute;
-        private readonly Func<bool> canExecuteEvaluator;
+        private readonly Action _methodToExecute;
+        private readonly Func<bool> _canExecuteEvaluator;
+
         public RelayCommand(Action methodToExecute, Func<bool> canExecuteEvaluator)
         {
-            this.methodToExecute = methodToExecute;
-            this.canExecuteEvaluator = canExecuteEvaluator;
+            _methodToExecute = methodToExecute;
+            _canExecuteEvaluator = canExecuteEvaluator;
         }
         public RelayCommand(Action methodToExecute)
             : this(methodToExecute, null)
@@ -23,16 +24,16 @@ namespace NewsReader.Util
         }
         public bool CanExecute(object parameter)
         {
-            if (canExecuteEvaluator == null)
+            if (_canExecuteEvaluator == null)
             {
                 return true;
             }
-                bool result = canExecuteEvaluator.Invoke();
-                return result;
+            var result = _canExecuteEvaluator.Invoke();
+            return result;
         }
         public void Execute(object parameter)
         {
-            methodToExecute.Invoke();
+            _methodToExecute.Invoke();
         }
     }
 }

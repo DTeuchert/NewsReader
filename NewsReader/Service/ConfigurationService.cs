@@ -77,14 +77,14 @@ namespace NewsReader.Service
             get
             {
                 return LoadConfiguration().VisibleCategories
-                    .ToDictionary(i => i.id, i => i.value);
+                    .ToDictionary(i => i.Id, i => i.Value);
             }
             set
             {
                 if (value == null) return;
                 var configuration = LoadConfiguration();
                 configuration.VisibleCategories = value
-                    .Select(kv => new DictionaryItem() { id = kv.Key, value = kv.Value }).ToList();
+                    .Select(kv => new DictionaryItem() { Id = kv.Key, Value = kv.Value }).ToList();
                 SaveConfiguration(configuration);
             }
         }
@@ -103,15 +103,15 @@ namespace NewsReader.Service
                 },
                 VisibleCategories = new List<DictionaryItem>
                 {
-                    new DictionaryItem{ id = RssCategory.General, value = true },
-                    new DictionaryItem{ id = RssCategory.Sport, value = true },
-                    new DictionaryItem{ id = RssCategory.Technology, value = true },
-                    new DictionaryItem{ id = RssCategory.Health, value = true },
-                    new DictionaryItem{ id = RssCategory.Economy, value = true },
-                    new DictionaryItem{ id = RssCategory.Career, value = true },
-                    new DictionaryItem{ id = RssCategory.International, value = true },
-                    new DictionaryItem{ id = RssCategory.Politics, value = true },
-                    new DictionaryItem{ id = RssCategory.Cultural, value = true },
+                    new DictionaryItem{ Id = RssCategory.General, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Sport, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Technology, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Health, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Economy, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Career, Value = true },
+                    new DictionaryItem{ Id = RssCategory.International, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Politics, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Cultural, Value = true },
                 }
             };
     }
