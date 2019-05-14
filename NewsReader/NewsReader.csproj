@@ -181,11 +181,11 @@
     <Compile Include="Converter\SelectedItemIsEnableConverter.cs" />
     <Compile Include="Converter\DateTimeFormatConverter.cs" />
     <Compile Include="Converter\ListBoxVisibilityConverter.cs" />
-    <Compile Include="Model\BaseModel.cs" />
-    <Compile Include="Model\ConfigurationModel.cs" />
-    <Compile Include="Model\RssCategory.cs" />
-    <Compile Include="Model\RSSFeed.cs" />
-    <Compile Include="Model\RSSLink.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\ConfigurationModel.cs" />
+    <Compile Include="Models\RssCategory.cs" />
+    <Compile Include="Models\RssFeed.cs" />
+    <Compile Include="Models\RssLink.cs" />
     <Compile Include="Resources\Strings\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>

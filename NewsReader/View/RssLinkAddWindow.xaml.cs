@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using NewsReader.Util;
-using NewsReader.Model;
+using NewsReader.Models;
 
 namespace NewsReader.View
 {
@@ -9,7 +9,7 @@ namespace NewsReader.View
     /// </summary>
     public partial class RssLinkAddWindow
     {
-        public RSSLinkCollection RSSLinkList { get; set; }
+        public RssLinkCollection RSSLinkList { get; set; }
 
         public RssLinkAddWindow()
         {
@@ -20,7 +20,7 @@ namespace NewsReader.View
         private void btnDialogAdd_Click(object sender, RoutedEventArgs e)
         {
             if (newLinkTextBox_Link.Text.Equals("")) return;
-            RSSLinkList.Add(new RSSLink { 
+            RSSLinkList.Add(new RssLink { 
                 Title = newLinkTextBox_Titel.Text,
                 Link = newLinkTextBox_Link.Text 
             });

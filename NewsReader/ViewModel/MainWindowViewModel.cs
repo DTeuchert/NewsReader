@@ -1,5 +1,4 @@
-﻿using NewsReader.Model;
-using NewsReader.Models;
+﻿using NewsReader.Models;
 using NewsReader.Service;
 using NewsReader.Util;
 using NewsReader.View;
@@ -61,9 +60,9 @@ namespace NewsReader.ViewModel
             }
         }
 
-        public RSSLinkCollection SourceList { get; set; }
-        public RSSFeedCollection BookmarkList { get; set; }
-        public RSSFeedCollection FeedList { get; set; }
+        public RssLinkCollection SourceList { get; set; }
+        public RssFeedCollection BookmarkList { get; set; }
+        public RssFeedCollection FeedList { get; set; }
 
         private ICommand _addRssLinkCommand;
         public ICommand AddRssLinkCommand => _addRssLinkCommand ??
@@ -242,8 +241,8 @@ namespace NewsReader.ViewModel
         }
 
 
-        private RSSLink _sourceList_SelectedItem;
-        public RSSLink SourceList_SelectedItem
+        private RssLink _sourceList_SelectedItem;
+        public RssLink SourceList_SelectedItem
         { 
             get
             {
@@ -258,8 +257,8 @@ namespace NewsReader.ViewModel
 
         public MainWindowViewModel(){
 
-            FeedList = new RSSFeedCollection();
-            BookmarkList = new RSSFeedCollection();
+            FeedList = new RssFeedCollection();
+            BookmarkList = new RssFeedCollection();
 
             SourceList = ConfigurationService.Links;
             _visibleCategories = ConfigurationService.VisibleCategories;
@@ -293,7 +292,7 @@ namespace NewsReader.ViewModel
             LastUpdate = DateTimeOffset.Now;
             IsRefreshing = false;
         }
-        private void UpdateFeed(RSSLink rssLink)
+        private void UpdateFeed(RssLink rssLink)
         {
             if (FeedList == null) { return; }
                     
@@ -308,7 +307,7 @@ namespace NewsReader.ViewModel
                     {
                         if (!_guidList.Any(x => x.Equals(item.Id)))
                         {
-                            var news = new RSSFeed
+                            var news = new RssFeed
                             {
                                 Guid = item.Id,
                                 Source = rssLink,

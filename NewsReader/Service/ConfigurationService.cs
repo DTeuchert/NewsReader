@@ -1,5 +1,4 @@
-﻿using NewsReader.Model;
-using NewsReader.Util;
+﻿using NewsReader.Util;
 using NewsReader.Models;
 using System;
 using System.Collections.Generic;
@@ -59,14 +58,14 @@ namespace NewsReader.Service
             }
         }
 
-        public static RSSLinkCollection Links
+        public static RssLinkCollection Links
         {
-            get { return (LoadConfiguration()).RSSLinks; }
+            get { return (LoadConfiguration()).RssLinks; }
             set
             {
                 if (value == null) return;
                 var configuration = LoadConfiguration();
-                configuration.RSSLinks= value;
+                configuration.RssLinks= value;
                 SaveConfiguration(configuration);
             }
         }
@@ -94,9 +93,9 @@ namespace NewsReader.Service
                 return new ConfigurationModel
                 {
                     LanguageCode = "de-DE",
-                    RSSLinks = new RSSLinkCollection
+                    RssLinks = new RssLinkCollection
                     {
-                        new RSSLink
+                        new RssLink
                         {
                             Title = "Welt",
                             Link = "https://www.welt.de/feeds/topnews.rss"

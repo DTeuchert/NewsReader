@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using NewsReader.Util;
-using NewsReader.Model;
+using NewsReader.Models;
 
 namespace NewsReader.View
 {
@@ -9,8 +9,8 @@ namespace NewsReader.View
     /// </summary>
     public partial class RssLinkRemoveWindow
     {
-        public RSSLink RemoveLink { get; set; }
-        public RSSLinkCollection RSSLinkList { get; set; }
+        public RssLink RemoveLink { get; set; }
+        public RssLinkCollection RSSLinkList { get; set; }
 
         public RssLinkRemoveWindow()
         {

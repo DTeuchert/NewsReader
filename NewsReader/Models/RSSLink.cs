@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 
-namespace NewsReader.Model
+namespace NewsReader.Models
 {
     [Serializable]
-    public class RSSLinkCollection : ObservableCollection<RSSLink> { }
+    public class RssLinkCollection : ObservableCollection<RssLink> { }
 
     [Serializable]
-    public class RSSLink : BaseModel
+    public class RssLink : BaseModel
     {
         private string _title;
         public string Title
         {
-            get { return _title; }
+            get => _title;
             set
             {
                 _title = value;
@@ -23,7 +23,7 @@ namespace NewsReader.Model
         private string _link;
         public string Link
         {
-            get { return _link; }
+            get => _link;
             set
             {
                 _link = value;
@@ -34,7 +34,7 @@ namespace NewsReader.Model
         private bool _isEnabled = true;
         public bool IsEnabled
         {
-            get { return _isEnabled; }
+            get => _isEnabled;
             set
             {
                 _isEnabled = value;
@@ -45,13 +45,12 @@ namespace NewsReader.Model
         private bool _isValid = true;
         public bool IsValid
         {
-            get { return _isValid; }
+            get => _isValid;
             set
             {
                 _isValid = value;
                 OnPropertyChanged(nameof(IsValid));
             }
         }
-
     }
 }

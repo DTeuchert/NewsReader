@@ -1,4 +1,4 @@
-﻿using NewsReader.Model;
+﻿using NewsReader.Models;
 using System;
 using System.Globalization;
 using System.Windows;
@@ -10,7 +10,7 @@ namespace NewsReader.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (value is null || ((RSSFeedCollection)value).Count <= 0)
+            return (value is null || ((RssFeedCollection)value).Count <= 0)
                 ? Visibility.Visible : Visibility.Hidden;
         }
 

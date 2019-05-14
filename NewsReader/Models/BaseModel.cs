@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace NewsReader.Model
+namespace NewsReader.Models
 {
     public class BaseModel : INotifyPropertyChanged
     {

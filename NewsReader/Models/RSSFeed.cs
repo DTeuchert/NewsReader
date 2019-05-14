@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections;
+﻿using NewsReader.Util;
+using System;
 using System.Collections.Generic;
-using System.Windows.Input;
 using System.Collections.ObjectModel;
 using System.Linq;
-using NewsReader.Models;
-using NewsReader.Util;
+using System.Windows.Input;
 
-namespace NewsReader.Model
+namespace NewsReader.Models
 {
 
-    public class RSSFeedCollection : ObservableCollection<RSSFeed>
+    public class RssFeedCollection : ObservableCollection<RssFeed>
     {
-        public void Sort<RSSFeed>()
+        public void Sort<RssFeed>()
         {
             InternalSort(Items.OrderBy(x => x.Date));
         }
 
-        private void InternalSort(IEnumerable<RSSFeed> sortedItems)
+        private void InternalSort(IEnumerable<RssFeed> sortedItems)
         {
             var sortedItemsList = sortedItems.ToList();
 
@@ -28,10 +26,10 @@ namespace NewsReader.Model
         }
     }
 
-    public class RSSFeed : BaseModel, IComparable<RSSFeed>
+    public class RssFeed : BaseModel, IComparable<RssFeed>
     {
         public string Guid { get; set; }
-        public RSSLink Source { get; set; }
+        public RssLink Source { get; set; }
         public DateTimeOffset Date { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
@@ -39,31 +37,23 @@ namespace NewsReader.Model
         public Uri Thumbnail { get; set; }
 
         private List<RssCategory> _category = new List<RssCategory>();
-        public List<RssCategory> Category { 
-            get { return _category; } 
-        }
+        public List<RssCategory> Category => _category;
 
         private bool _hasBeenSeen;
         public bool HasBeenSeen
         {
-            get
-            {
-                return _hasBeenSeen;
-            }
+            get => _hasBeenSeen;
             set
             {
                 _hasBeenSeen = value;
                 OnPropertyChanged(nameof(HasBeenSeen));
             }
         }
-                
+
         private bool _isMarked;
         public bool IsMarked
         {
-            get
-            {
-                return _isMarked;
-            }
+            get => _isMarked;
             set
             {
                 _isMarked = value;
@@ -71,13 +61,10 @@ namespace NewsReader.Model
             }
         }
 
-        private bool _isCollapsed = false;
+        private bool _isCollapsed;
         public bool IsCollapsed
         {
-            get
-            {
-                return _isCollapsed;
-            }
+            get => _isCollapsed;
             set
             {
                 _isCollapsed = value;
@@ -118,10 +105,10 @@ namespace NewsReader.Model
         }
 
         #region IComparable Members
-        public int CompareTo(RSSFeed other)
+        public int CompareTo(RssFeed other)
         {
-            if (this.Date == other.Date) return 0;
-            return this.Date.CompareTo(other.Date);
+            if (Date == other.Date) return 0;
+            return Date.CompareTo(other.Date);
         }
         #endregion 
     }
