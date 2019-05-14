@@ -1,5 +1,5 @@
-﻿using NewsReader.Util;
-using NewsReader.Models;
+﻿using NewsReader.Models;
+using NewsReader.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,17 +8,17 @@ using System.Xml.Serialization;
 
 namespace NewsReader.Service
 {
-    class ConfigurationService
+    internal class ConfigurationService
     {
-        private const string configurationFile = @"Config.xml";
+        private const string ConfigurationFile = @"Config.xml";
 
         private static void SaveConfiguration(ConfigurationModel configuration)
         {
-            if (!File.Exists(configurationFile))
+            if (!File.Exists(ConfigurationFile))
             {
-                File.Create(configurationFile).Dispose();
+                File.Create(ConfigurationFile).Dispose();
             }
-            using (var writer = new StreamWriter(configurationFile))
+            using (var writer = new StreamWriter(ConfigurationFile))
             {
                 var xs = new XmlSerializer(typeof(ConfigurationModel));
                 xs.Serialize(writer, configuration);
@@ -26,9 +26,9 @@ namespace NewsReader.Service
         }
         private static ConfigurationModel LoadConfiguration()
         {
-            if (File.Exists(configurationFile))
+            if (File.Exists(ConfigurationFile))
             {
-                using (var reader = new StreamReader(configurationFile))
+                using (var reader = new StreamReader(ConfigurationFile))
                 {
                     var xs = new XmlSerializer(typeof(ConfigurationModel));
                     try
@@ -36,7 +36,9 @@ namespace NewsReader.Service
                         return (ConfigurationModel)xs.Deserialize(reader);
                     }
                     catch (Exception)
-                    { }
+                    {
+                        // ignored
+                    }
                 }
             }
             else
@@ -48,7 +50,7 @@ namespace NewsReader.Service
 
         public static string Language
         {
-            get { return (LoadConfiguration()).LanguageCode; } 
+            get => LoadConfiguration().LanguageCode;
             set
             {
                 if (string.IsNullOrEmpty(value)) return;
@@ -60,20 +62,21 @@ namespace NewsReader.Service
 
         public static RssLinkCollection Links
         {
-            get { return (LoadConfiguration()).RssLinks; }
+            get => LoadConfiguration().Links;
             set
             {
                 if (value == null) return;
                 var configuration = LoadConfiguration();
-                configuration.RssLinks= value;
+                configuration.Links = value;
                 SaveConfiguration(configuration);
             }
         }
 
         public static Dictionary<RssCategory, bool> VisibleCategories
         {
-            get {
-                return (LoadConfiguration()).VisibleCategories
+            get
+            {
+                return LoadConfiguration().VisibleCategories
                     .ToDictionary(i => i.id, i => i.value);
             }
             set
@@ -86,35 +89,30 @@ namespace NewsReader.Service
             }
         }
 
-        private static ConfigurationModel Default
-        {
-            get
+        private static ConfigurationModel Default =>
+            new ConfigurationModel
             {
-                return new ConfigurationModel
+                LanguageCode = "de-DE",
+                Links = new RssLinkCollection
                 {
-                    LanguageCode = "de-DE",
-                    RssLinks = new RssLinkCollection
+                    new RssLink
                     {
-                        new RssLink
-                        {
-                            Title = "Welt",
-                            Link = "https://www.welt.de/feeds/topnews.rss"
-                        }
-                    },
-                    VisibleCategories = new List<DictionaryItem>
-                    {
-                        new DictionaryItem{ id = RssCategory.General, value = true },
-                        new DictionaryItem{ id = RssCategory.Sport, value = true },
-                        new DictionaryItem{ id = RssCategory.Technology, value = true },
-                        new DictionaryItem{ id = RssCategory.Health, value = true },
-                        new DictionaryItem{ id = RssCategory.Economy, value = true },
-                        new DictionaryItem{ id = RssCategory.Career, value = true },
-                        new DictionaryItem{ id = RssCategory.International, value = true },
-                        new DictionaryItem{ id = RssCategory.Politics, value = true },
-                        new DictionaryItem{ id = RssCategory.Cultural, value = true },
+                        Title = "Welt",
+                        Link = "https://www.welt.de/feeds/topnews.rss"
                     }
-                };
-            }
-        }
+                },
+                VisibleCategories = new List<DictionaryItem>
+                {
+                    new DictionaryItem{ id = RssCategory.General, value = true },
+                    new DictionaryItem{ id = RssCategory.Sport, value = true },
+                    new DictionaryItem{ id = RssCategory.Technology, value = true },
+                    new DictionaryItem{ id = RssCategory.Health, value = true },
+                    new DictionaryItem{ id = RssCategory.Economy, value = true },
+                    new DictionaryItem{ id = RssCategory.Career, value = true },
+                    new DictionaryItem{ id = RssCategory.International, value = true },
+                    new DictionaryItem{ id = RssCategory.Politics, value = true },
+                    new DictionaryItem{ id = RssCategory.Cultural, value = true },
+                }
+            };
     }
 }

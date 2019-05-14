@@ -9,6 +9,6 @@ namespace NewsReader.Models
     {
         public string LanguageCode { get; set; }
         public List<DictionaryItem> VisibleCategories { get; set; }
-        public RssLinkCollection RssLinks { get; set; }
+        public RssLinkCollection Links { get; set; }
     }
 }
