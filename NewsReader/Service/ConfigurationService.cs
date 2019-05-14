@@ -1,10 +1,10 @@
-﻿using NewsReader.Models;
-using NewsReader.Util;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
+using NewsReader.Models;
+using NewsReader.Util;
 
 namespace NewsReader.Service
 {

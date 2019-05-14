@@ -1,8 +1,8 @@
-﻿using NewsReader.Models;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using NewsReader.Models;
 
 namespace NewsReader.Converter
 {
