@@ -16,15 +16,6 @@
     <converter:CollapsedRotationConverter x:Key="CollapsedRotationConverter" />
 
     <converter:FeedCategoryListConverter x:Key="FeedCategoryListConverter" />
-
-    <converter:CountGeneralListVisibilityConverter x:Key="CountGeneralListVisibilityConverter" />
-    <converter:CountSportListVisibilityConverter x:Key="CountSportListVisibilityConverter" />
-    <converter:CountTechnologyListVisibilityConverter x:Key="CountTechnologyListVisibilityConverter" />
-    <converter:CountHealthListVisibilityConverter x:Key="CountHealthListVisibilityConverter" />
-    <converter:CountEconomyListVisibilityConverter x:Key="CountEconomyListVisibilityConverter" />
-    <converter:CountCareerListVisibilityConverter x:Key="CountCareerListVisibilityConverter" />
-    <converter:CountInternationalListVisibilityConverter x:Key="CountInternationalListVisibilityConverter" />
-    <converter:CountPoliticsListVisibilityConverter x:Key="CountPoliticsListVisibilityConverter" />
-    <converter:CountCulturalListVisibilityConverter x:Key="CountCulturalListVisibilityConverter" />
+    <converter:CountCategoryListVisibilityConverter x:Key="CountCategoryListVisibilityConverter" />
 
 </ResourceDictionary>

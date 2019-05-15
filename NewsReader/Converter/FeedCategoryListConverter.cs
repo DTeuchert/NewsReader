@@ -18,7 +18,6 @@ namespace NewsReader.Converter
 
             var filterCategory = (RssCategory)parameter;
             return list.Where(x => x.Category.Any(y => y == filterCategory));
-
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

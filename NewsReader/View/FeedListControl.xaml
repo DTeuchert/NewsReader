@@ -57,20 +57,20 @@
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
     </UserControl.Resources>
-	<Grid>
+    <Grid>
         <TabControl Style="{StaticResource TabControlStyle}">
-			<TabItem Header="{util:Localization theme_general}"
+            <TabItem Header="{util:Localization theme_general}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_General, Converter={StaticResource BooleanVisibilityConverter}}">
-				<Grid>
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition/>
-					</Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-					<TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountGeneralListVisibilityConverter}}"
+						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}}"
 						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
@@ -79,19 +79,19 @@
                              />
 
                 </Grid>
-			</TabItem>
+            </TabItem>
             <TabItem Header="{util:Localization theme_sport}"
                      Style="{StaticResource TabItemStyle}"
                      Visibility="{Binding TabVisibility_Sport, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
-						<RowDefinition Height="Auto"/>
-						<RowDefinition/>
-					</Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-					<TextBlock Grid.Row="0" 
+                    <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountSportListVisibilityConverter}}"
+						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Sport}}"
 						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
@@ -110,7 +110,7 @@
 
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountTechnologyListVisibilityConverter}}"
+						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Technology}}"
 						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
@@ -129,7 +129,7 @@
 
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountHealthListVisibilityConverter}}"
+						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Health}}"
 						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
@@ -148,7 +148,7 @@
 
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountEconomyListVisibilityConverter}}"
+						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Economy}}"
 						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
@@ -167,7 +167,7 @@
 
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountCareerListVisibilityConverter}}"
+						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Career}}"
 						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
@@ -186,7 +186,7 @@
 
                     <TextBlock Grid.Row="0" 
 						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountInternationalListVisibilityConverter}}"
+						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.International}}"
 						Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
@@ -205,7 +205,7 @@
 
                     <TextBlock Grid.Row="0" 
 						    Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						    Visibility="{Binding FeedList, Converter={StaticResource CountPoliticsListVisibilityConverter}}"
+						    Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Politics}}"
 						    Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
@@ -224,7 +224,7 @@
 
                     <TextBlock Grid.Row="0" 
 						    Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						    Visibility="{Binding FeedList, Converter={StaticResource CountCulturalListVisibilityConverter}}"
+						    Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Cultural}}"
 						    Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 

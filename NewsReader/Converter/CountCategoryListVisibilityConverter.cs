@@ -1,19 +1,24 @@
 ﻿using System;
-using System.Linq;
 using System.Globalization;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
-using System.Windows.Media;
 using NewsReader.Models;
 
 namespace NewsReader.Converter
 {
-    class CountCulturalListVisibilityConverter : IValueConverter
+    internal class CountCategoryListVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((RssFeedCollection)value == null 
-                || (value as RssFeedCollection).Count(x => x.Category.Any(y => y == RssCategory.Cultural)) <= 0)
+            if (parameter is null)
+            {
+                return (value != null && ((RssFeedCollection)value).Count <= 0) ? Visibility.Visible : Visibility.Hidden;
+            }
+
+            var filterCategory = (RssCategory)parameter;
+            return ((RssFeedCollection)value == null
+                    || ((RssFeedCollection)value).Count(x => x.Category.Any(y => y == filterCategory)) <= 0)
                 ? Visibility.Visible : Visibility.Hidden;
         }
 
