@@ -15,14 +15,7 @@
     <converter:ColorIsMarkedConverter x:Key="ColorIsMarkedConverter" />
     <converter:CollapsedRotationConverter x:Key="CollapsedRotationConverter" />
 
-    <converter:FeedSportListConverter x:Key="FeedSportListConverter" />
-    <converter:FeedTechnologyListConverter x:Key="FeedTechnologyListConverter" />
-    <converter:FeedHealthListConverter x:Key="FeedHealthListConverter" />
-    <converter:FeedEconomyListConverter x:Key="FeedEconomyListConverter" />
-    <converter:FeedCareerListConverter x:Key="FeedCareerListConverter" />
-    <converter:FeedInternationalListConverter x:Key="FeedInternationalListConverter" />
-    <converter:FeedPoliticsListConverter x:Key="FeedPoliticsListConverter" />
-    <converter:FeedCulturalListConverter x:Key="FeedCulturalListConverter" />
+    <converter:FeedCategoryListConverter x:Key="FeedCategoryListConverter" />
 
     <converter:CountGeneralListVisibilityConverter x:Key="CountGeneralListVisibilityConverter" />
     <converter:CountSportListVisibilityConverter x:Key="CountSportListVisibilityConverter" />

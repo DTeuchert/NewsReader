@@ -155,6 +155,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converter\CollapsedRotationConverter.cs" />
+    <Compile Include="Converter\FeedCategoryListConverter.cs" />
     <Compile Include="Converter\InverseBooleanVisibilityConverter.cs" />
     <Compile Include="Converter\CountGeneralListVisibilityConverter.cs" />
     <Compile Include="Converter\CountTechnologyListVisibilityConverter.cs" />
@@ -165,14 +166,6 @@
     <Compile Include="Converter\CountPoliticsListVisibilityConverter.cs" />
     <Compile Include="Converter\CountCulturalListVisibilityConverter.cs" />
     <Compile Include="Converter\CountSportListVisibilityConverter.cs" />
-    <Compile Include="Converter\FeedTechnologyListConverter.cs" />
-    <Compile Include="Converter\FeedHealthListConverter.cs" />
-    <Compile Include="Converter\FeedEconomyListConverter.cs" />
-    <Compile Include="Converter\FeedCareerListConverter.cs" />
-    <Compile Include="Converter\FeedInternationalListConverter.cs" />
-    <Compile Include="Converter\FeedPoliticsListConverter.cs" />
-    <Compile Include="Converter\FeedCulturalListConverter.cs" />
-    <Compile Include="Converter\FeedSportListConverter.cs" />
     <Compile Include="Converter\ColorIsMarkedConverter.cs" />
     <Compile Include="Converter\BooleanVisibilityConverter.cs" />
     <Compile Include="Converter\BackgroundHasSeenConverter.cs" />

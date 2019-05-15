@@ -7,6 +7,7 @@
              xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              xmlns:util="clr-namespace:NewsReader.Util"
+             xmlns:models="clr-namespace:NewsReader.Models"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -15,42 +16,42 @@
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedSportListConverter}}" x:Key="cvs_sport">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Sport}}" x:Key="cvs_sport">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedTechnologyListConverter}}" x:Key="cvs_technology">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Technology}}" x:Key="cvs_technology">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedHealthListConverter}}" x:Key="cvs_health">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Health}}" x:Key="cvs_health">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedEconomyListConverter}}" x:Key="cvs_economy">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Economy}}" x:Key="cvs_economy">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCareerListConverter}}" x:Key="cvs_career">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Career}}" x:Key="cvs_career">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedInternationalListConverter}}" x:Key="cvs_international">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.International}}" x:Key="cvs_international">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedPoliticsListConverter}}" x:Key="cvs_politics">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Politics}}" x:Key="cvs_politics">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCulturalListConverter}}" x:Key="cvs_cultural">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Cultural}}" x:Key="cvs_cultural">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>

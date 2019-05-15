@@ -1,19 +1,24 @@
 ﻿using System;
-using System.Linq;
 using System.Globalization;
-using System.Windows;
+using System.Linq;
 using System.Windows.Data;
-using System.Windows.Media;
 using NewsReader.Models;
 
 namespace NewsReader.Converter
 {
-    class FeedEconomyListConverter : IValueConverter
+    internal class FeedCategoryListConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var list = (RssFeedCollection)value;
-            return list.Where(x => x.Category.Any(y => y == RssCategory.Economy));
+            if (parameter is null || list is null)
+            {
+                return list;
+            }
+
+            var filterCategory = (RssCategory)parameter;
+            return list.Where(x => x.Category.Any(y => y == filterCategory));
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
