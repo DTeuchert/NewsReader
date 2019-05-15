@@ -14,12 +14,12 @@ namespace NewsReader.ViewModel
 {
     class MainWindowViewModel : BaseViewModel
     {
-        private List<string> _guidList = new List<string>(); 
+        private readonly List<string> _guidList = new List<string>(); 
 
         private bool _isConfigurationControlVisible;
         public bool IsConfigurationControlVisible 
         {
-            get { return _isConfigurationControlVisible; }
+            get => _isConfigurationControlVisible;
             set {
                 _isConfigurationControlVisible = value;
                 OnPropertyChanged(nameof(IsConfigurationControlVisible));
@@ -30,7 +30,7 @@ namespace NewsReader.ViewModel
         private bool _isBookmarkControlVisible;
         public bool IsBookmarkControlVisible
         {
-            get { return _isBookmarkControlVisible; }
+            get => _isBookmarkControlVisible;
             set
             {
                 _isBookmarkControlVisible = value;
@@ -42,17 +42,17 @@ namespace NewsReader.ViewModel
         private DateTimeOffset _lastUpdate = DateTimeOffset.Now;
         public DateTimeOffset LastUpdate 
         { 
-            get { return _lastUpdate; }
+            get => _lastUpdate;
             set {
                 _lastUpdate = value;
                 OnPropertyChanged(nameof(LastUpdate));
             }
         }
 
-        private bool _isRefreshing = false;
+        private bool _isRefreshing;
         public bool IsRefreshing
         {
-            get { return _isRefreshing; }
+            get => _isRefreshing;
             set
             {
                 _isRefreshing = value;
@@ -68,37 +68,37 @@ namespace NewsReader.ViewModel
         public ICommand AddRssLinkCommand => _addRssLinkCommand ??
             (_addRssLinkCommand = new RelayCommand(() =>
                 {
-                    var changeRSSLinkWindow = new RssLinkAddWindow
+                    var changeRssLinkWindow = new RssLinkAddWindow
                     {
                         RSSLinkList = SourceList
                     };
-                    changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
-                    changeRSSLinkWindow.ShowDialog();
+                    changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;
+                    changeRssLinkWindow.ShowDialog();
                 }));
 
         private ICommand _editRssLinkCommand;
         public ICommand EditRssLinkCommand => _editRssLinkCommand ??
             (_editRssLinkCommand = new RelayCommand(() =>
                 {
-                    var changeRSSLinkWindow = new RssLinkEditWindow
+                    var changeRssLinkWindow = new RssLinkEditWindow
                     {
                         EditLink = SourceList_SelectedItem
                     };
-                    changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
-                    changeRSSLinkWindow.ShowDialog();
+                    changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;
+                    changeRssLinkWindow.ShowDialog();
                 }));
 
         private ICommand _removeRssLinkCommand;
         public ICommand RemoveRssLinkCommand => _removeRssLinkCommand ??
             (_removeRssLinkCommand = new RelayCommand(() =>
                 {
-                    var changeRSSLinkWindow = new RssLinkRemoveWindow
+                    var changeRssLinkWindow = new RssLinkRemoveWindow
                     {
                         RemoveLink = SourceList_SelectedItem,
                         RSSLinkList = SourceList
                     };
-                    changeRSSLinkWindow.Closed += OnClose_RSSLinkWindow;
-                    changeRSSLinkWindow.ShowDialog();
+                    changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;
+                    changeRssLinkWindow.ShowDialog();
                 }));
 
         private ICommand _isEnabledRssLinkCommand;
@@ -111,7 +111,7 @@ namespace NewsReader.ViewModel
 
         private ICommand _refreshCommand;
         public ICommand RefreshCommand => _refreshCommand ??
-            (_refreshCommand = new RelayCommand(() => updateFeedList()));
+            (_refreshCommand = new RelayCommand(() => UpdateFeedList()));
 
         private ICommand _settingsCommand;
         public ICommand SettingsCommand => _settingsCommand ??
@@ -120,7 +120,7 @@ namespace NewsReader.ViewModel
                     IsConfigurationControlVisible = !IsConfigurationControlVisible;
                 }));
 
-        public ICommand _bookmarkCommand;
+        private ICommand _bookmarkCommand;
         public ICommand BookmarkCommand => _bookmarkCommand ??
             (_bookmarkCommand = new RelayCommand(() =>
                {
@@ -136,7 +136,7 @@ namespace NewsReader.ViewModel
                    }
                }));
 
-        private Dictionary<RssCategory, bool> _visibleCategories = new Dictionary<RssCategory, bool>
+        private readonly Dictionary<RssCategory, bool> _visibleCategories = new Dictionary<RssCategory, bool>
         {
             { RssCategory.General, true },
             { RssCategory.Sport, true },
@@ -151,7 +151,7 @@ namespace NewsReader.ViewModel
                 
         public bool TabVisibility_General 
         {
-            get { return _visibleCategories[RssCategory.General]; }
+            get => _visibleCategories[RssCategory.General];
             set 
             {
                 _visibleCategories[RssCategory.General] = value;
@@ -161,7 +161,7 @@ namespace NewsReader.ViewModel
         }   
         public bool TabVisibility_Sport
         {
-            get { return _visibleCategories[RssCategory.Sport]; }
+            get => _visibleCategories[RssCategory.Sport];
             set
             {
                 _visibleCategories[RssCategory.Sport] = value;
@@ -171,7 +171,7 @@ namespace NewsReader.ViewModel
         }
         public bool TabVisibility_Technology
         {
-            get { return _visibleCategories[RssCategory.Technology]; }
+            get => _visibleCategories[RssCategory.Technology];
             set
             {
                 _visibleCategories[RssCategory.Technology] = value;
@@ -181,7 +181,7 @@ namespace NewsReader.ViewModel
         }
         public bool TabVisibility_Health
         {
-            get { return _visibleCategories[RssCategory.Health]; }
+            get => _visibleCategories[RssCategory.Health];
             set
             {
                 _visibleCategories[RssCategory.Health] = value;
@@ -191,7 +191,7 @@ namespace NewsReader.ViewModel
         }
         public bool TabVisibility_Economy
         {
-            get { return _visibleCategories[RssCategory.Economy]; }
+            get => _visibleCategories[RssCategory.Economy];
             set
             {
                 _visibleCategories[RssCategory.Economy] = value;
@@ -201,7 +201,7 @@ namespace NewsReader.ViewModel
         }
         public bool TabVisibility_Career
         {
-            get { return _visibleCategories[RssCategory.Career]; }
+            get => _visibleCategories[RssCategory.Career];
             set
             {
                 _visibleCategories[RssCategory.Career] = value;
@@ -211,7 +211,7 @@ namespace NewsReader.ViewModel
         }
         public bool TabVisibility_International
         {
-            get { return _visibleCategories[RssCategory.International]; }
+            get => _visibleCategories[RssCategory.International];
             set
             {
                 _visibleCategories[RssCategory.International] = value;
@@ -221,7 +221,7 @@ namespace NewsReader.ViewModel
         }
         public bool TabVisibility_Politics
         {
-            get { return _visibleCategories[RssCategory.Politics]; }
+            get => _visibleCategories[RssCategory.Politics];
             set
             {
                 _visibleCategories[RssCategory.Politics] = value;
@@ -231,7 +231,7 @@ namespace NewsReader.ViewModel
         }
         public bool TabVisibility_Cultural
         {
-            get { return _visibleCategories[RssCategory.Cultural]; }
+            get => _visibleCategories[RssCategory.Cultural];
             set
             {
                 _visibleCategories[RssCategory.Cultural] = value;
@@ -244,10 +244,7 @@ namespace NewsReader.ViewModel
         private RssLink _sourceList_SelectedItem;
         public RssLink SourceList_SelectedItem
         { 
-            get
-            {
-                return _sourceList_SelectedItem;
-            }
+            get => _sourceList_SelectedItem;
             set
             {
                 _sourceList_SelectedItem = value;
@@ -262,15 +259,15 @@ namespace NewsReader.ViewModel
 
             SourceList = ConfigurationService.Links;
             _visibleCategories = ConfigurationService.VisibleCategories;
-            updateFeedList();
+            UpdateFeedList();
         }
 
         private void OnClose_RSSLinkWindow(object sender, EventArgs e)
         {
-            if ((sender as Window).DialogResult == true)
+            if ((sender as Window)?.DialogResult == true)
             {
                 ConfigurationService.Links = SourceList;
-                updateFeedList();
+                UpdateFeedList();
             }          
         }
         private void OnChange_RSSCategory()
@@ -278,7 +275,7 @@ namespace NewsReader.ViewModel
             ConfigurationService.VisibleCategories = _visibleCategories;
         }
         
-        private void updateFeedList() 
+        private void UpdateFeedList() 
         {
             if(IsRefreshing) { return; }
 
@@ -298,55 +295,55 @@ namespace NewsReader.ViewModel
                     
             try
             {
-                using (var reader = XmlReader.Create(rssLink.Link.ToString()))
+                using (var reader = XmlReader.Create(rssLink.Link))
                 {
                     var feed = SyndicationFeed.Load(reader);
-                    if (feed == null) return;
-                    
+
                     foreach (var item in feed.Items)
                     {
-                        if (!_guidList.Any(x => x.Equals(item.Id)))
+                        if (_guidList.Any(x => x.Equals(item.Id)))
                         {
-                            var news = new RssFeed
-                            {
-                                Guid = item.Id,
-                                Source = rssLink,
-                                Date = item.PublishDate.UtcDateTime,
-                                Title = item.Title.Text,
-                                Link = item.Links[0].Uri
-                            };
+                            continue;
+                        }
 
-                            if (item.Summary != null) news.Description = item.Summary.Text;
-                            if (item.Links.Count >= 2) news.Thumbnail = item.Links[1].Uri;
+                        var news = new RssFeed
+                        {
+                            Guid = item.Id,
+                            Source = rssLink,
+                            Date = item.PublishDate.UtcDateTime,
+                            Title = item.Title.Text,
+                            Link = item.Links[0].Uri,
+                            Description = item.Summary?.Text ?? string.Empty,
+                            Thumbnail = (item.Links.Count >= 2) ? item.Links[1].Uri : null
+                        };
 
-                            news.Category.Add(RssCategory.General);
+                        news.Category.Add(RssCategory.General);
 
-                            if (item.Categories.Any(x => 
-                                x.Name.Equals("Sport") || 
-                                x.Name.Equals("Fußball"))) news.Category.Add(RssCategory.Sport);
-                            if (item.Categories.Any(x => 
-                                x.Name.Equals("Technology") || 
-                                x.Name.Equals("Digital"))) news.Category.Add(RssCategory.Technology);
-                            if (item.Categories.Any(x => 
-                                x.Name.Equals("Gesundheit"))) news.Category.Add(RssCategory.Health);
-                            if (item.Categories.Any(x => 
-                                x.Name.Equals("Wirtschaft"))) news.Category.Add(RssCategory.Economy);
-                            if (item.Categories.Any(x => 
-                                x.Name.Equals("Karriere"))) news.Category.Add(RssCategory.Career);
-                            if (item.Categories.Any(x => 
-                                x.Name.Equals("International"))) news.Category.Add(RssCategory.International);
-                            if (item.Categories.Any(x => 
-                                x.Name.Equals("Politik"))) news.Category.Add(RssCategory.Politics);
-                            if (item.Categories.Any(x => 
-                                x.Name.Equals("Kultur"))) news.Category.Add(RssCategory.Cultural);
-       
-                            FeedList.Add(news);
-                            _guidList.Add(news.Guid);
-                        }           
+                        if (item.Categories.Any(x => 
+                            x.Name.Equals("Sport") || 
+                            x.Name.Equals("Fußball"))) news.Category.Add(RssCategory.Sport);
+                        if (item.Categories.Any(x => 
+                            x.Name.Equals("Technology") || 
+                            x.Name.Equals("Digital"))) news.Category.Add(RssCategory.Technology);
+                        if (item.Categories.Any(x => 
+                            x.Name.Equals("Gesundheit"))) news.Category.Add(RssCategory.Health);
+                        if (item.Categories.Any(x => 
+                            x.Name.Equals("Wirtschaft"))) news.Category.Add(RssCategory.Economy);
+                        if (item.Categories.Any(x => 
+                            x.Name.Equals("Karriere"))) news.Category.Add(RssCategory.Career);
+                        if (item.Categories.Any(x => 
+                            x.Name.Equals("International"))) news.Category.Add(RssCategory.International);
+                        if (item.Categories.Any(x => 
+                            x.Name.Equals("Politik"))) news.Category.Add(RssCategory.Politics);
+                        if (item.Categories.Any(x => 
+                            x.Name.Equals("Kultur"))) news.Category.Add(RssCategory.Cultural);
+   
+                        FeedList.Add(news);
+                        _guidList.Add(news.Guid);
                     }
                 }
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 rssLink.IsValid = false;
             }
