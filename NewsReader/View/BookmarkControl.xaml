@@ -19,12 +19,12 @@
                Content="{util:Localization bookmark}"/>
 
         <Label Grid.Row="1" 
-			   Margin="3" VerticalAlignment="Center"
-			   Visibility="{Binding BookmarkList, Converter={StaticResource ListBoxVisibilityConverter}}"
-			   Content="{util:Localization  no_bookmark}" />
+               Margin="3" VerticalAlignment="Center"
+               Visibility="{Binding BookmarkList, Converter={StaticResource ListBoxVisibilityConverter}}"
+               Content="{util:Localization  no_bookmark}" />
         
-        <ListBox x:Name="lsb_bookmark"  Grid.Row="2" Background="Transparent" Margin="10,5"
-			     Style="{StaticResource RSSFeedListBoxStyle}" 
+        <ListBox Grid.Row="2" Background="Transparent" Margin="10,5"
+                 Style="{StaticResource RSSFeedListBoxStyle}" 
                  ItemsSource="{Binding BookmarkList}" />
     </Grid>
 </UserControl>

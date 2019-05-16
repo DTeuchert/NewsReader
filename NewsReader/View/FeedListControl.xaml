@@ -5,53 +5,52 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
              xmlns:util="clr-namespace:NewsReader.Util"
              xmlns:models="clr-namespace:NewsReader.Models"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <CollectionViewSource Source="{Binding FeedList}" x:Key="cvs">
+        <CollectionViewSource Source="{Binding FeedList}" x:Key="Cvs">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Sport}}" x:Key="cvs_sport">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Sport}}" x:Key="CvsSport">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Technology}}" x:Key="cvs_technology">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Technology}}" x:Key="CvsTechnology">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Health}}" x:Key="cvs_health">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Health}}" x:Key="CvsHealth">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Economy}}" x:Key="cvs_economy">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Economy}}" x:Key="CvsEconomy">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Career}}" x:Key="cvs_career">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Career}}" x:Key="CvsCareer">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.International}}" x:Key="cvs_international">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.International}}" x:Key="CvsInternational">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Politics}}" x:Key="cvs_politics">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Politics}}" x:Key="CvsPolitics">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
-        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Cultural}}" x:Key="cvs_cultural">
+        <CollectionViewSource Source="{Binding FeedList, Converter={StaticResource FeedCategoryListConverter}, ConverterParameter={x:Static models:RssCategory.Cultural}}" x:Key="CvsCultural">
             <CollectionViewSource.SortDescriptions>
                 <scm:SortDescription Direction="Descending" PropertyName="Date"/>
             </CollectionViewSource.SortDescriptions>
@@ -69,13 +68,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0"
-						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}}"
-						Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						     Style="{StaticResource RSSFeedListBoxStyle}"
-						     ItemsSource="{Binding Source={StaticResource cvs}}"
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource Cvs}}"
                              />
 
                 </Grid>
@@ -90,13 +89,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" 
-						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Sport}}"
-						Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Sport}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						     Style="{StaticResource RSSFeedListBoxStyle}"
-						     ItemsSource="{Binding Source={StaticResource cvs_sport}}" />
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource CvsSport}}" />
                 </Grid>
             </TabItem>
             <TabItem Header="{util:Localization theme_technology}"
@@ -109,13 +108,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" 
-						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Technology}}"
-						Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Technology}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						     Style="{StaticResource RSSFeedListBoxStyle}"
-						     ItemsSource="{Binding Source={StaticResource cvs_technology}}" />
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource CvsTechnology}}" />
                 </Grid>
             </TabItem>
             <TabItem Header="{util:Localization theme_health}"
@@ -128,13 +127,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" 
-						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Health}}"
-						Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Health}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						     Style="{StaticResource RSSFeedListBoxStyle}"
-						     ItemsSource="{Binding Source={StaticResource cvs_health}}" />
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource CvsHealth}}" />
                 </Grid>
             </TabItem>
             <TabItem Header="{util:Localization theme_economy}"
@@ -147,13 +146,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" 
-						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Economy}}"
-						Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Economy}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						     Style="{StaticResource RSSFeedListBoxStyle}"
-						     ItemsSource="{Binding Source={StaticResource cvs_economy}}" />
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource CvsEconomy}}" />
                 </Grid>
             </TabItem>
             <TabItem Header="{util:Localization theme_career}"
@@ -166,13 +165,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" 
-						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Career}}"
-						Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Career}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						     Style="{StaticResource RSSFeedListBoxStyle}"
-						     ItemsSource="{Binding Source={StaticResource cvs_career}}" />
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource CvsCareer}}" />
                 </Grid>
             </TabItem>
             <TabItem Header="{util:Localization theme_international}"
@@ -185,18 +184,18 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" 
-						Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.International}}"
-						Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.International}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						     Style="{StaticResource RSSFeedListBoxStyle}"
-						     ItemsSource="{Binding Source={StaticResource cvs_international}}" />
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource CvsInternational}}" />
                 </Grid>
             </TabItem>
             <TabItem Header="{util:Localization theme_politics}"
                      Style="{StaticResource TabItemStyle}"
-                         Visibility="{Binding CategoryVisibility.Politics, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.Politics, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -204,13 +203,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" 
-						    Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						    Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Politics}}"
-						    Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Politics}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						         Style="{StaticResource RSSFeedListBoxStyle}"
-						         ItemsSource="{Binding Source={StaticResource cvs_politics}}" />
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource CvsPolitics}}" />
                 </Grid>
             </TabItem>
             <TabItem Header="{util:Localization theme_cultural}"
@@ -223,13 +222,13 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" 
-						    Margin="3" TextAlignment="Center" VerticalAlignment="Center"
-						    Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Cultural}}"
-						    Text="{util:Localization no_data}" />
+                               Margin="3" TextAlignment="Center" VerticalAlignment="Center"
+                               Visibility="{Binding FeedList, Converter={StaticResource CountCategoryListVisibilityConverter}, ConverterParameter={x:Static models:RssCategory.Cultural}}"
+                               Text="{util:Localization no_data}" />
 
                     <ListBox Grid.Row="1" 
-						         Style="{StaticResource RSSFeedListBoxStyle}"
-						         ItemsSource="{Binding Source={StaticResource cvs_cultural}}" />
+                             Style="{StaticResource RSSFeedListBoxStyle}"
+                             ItemsSource="{Binding Source={StaticResource CvsCultural}}" />
                 </Grid>
             </TabItem>
         </TabControl>

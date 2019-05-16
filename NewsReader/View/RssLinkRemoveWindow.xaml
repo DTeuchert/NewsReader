@@ -43,7 +43,6 @@
             </TextBlock>
         </Label>
 
-
         <WrapPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
                    Margin="0,15,0,0"
                    HorizontalAlignment="Right">

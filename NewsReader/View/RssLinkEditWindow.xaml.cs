@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using NewsReader.Util;
 using NewsReader.Models;
 
 namespace NewsReader.View
@@ -15,15 +14,15 @@ namespace NewsReader.View
         {
             InitializeComponent();
             DataContext = this;
-            editLinkTextBox_Title.Focus();
+            TbRssTitle.Focus();
         }
 
         private void btnDialogEdit_Click(object sender, RoutedEventArgs e)
         {
-            if (editLinkTextBox_Link.Text.Equals("") || 
-                (editLinkTextBox_Title.Text.Equals(EditLink.Title) && editLinkTextBox_Link.Text.Equals(EditLink.Link))) return;
-            EditLink.Title = editLinkTextBox_Title.Text;
-            EditLink.Link = editLinkTextBox_Link.Text;
+            if (TbRssLink.Text.Equals("") ||
+                (TbRssTitle.Text.Equals(EditLink.Title) && TbRssLink.Text.Equals(EditLink.Link))) return;
+            EditLink.Title = TbRssTitle.Text;
+            EditLink.Link = TbRssLink.Text;
 
             DialogResult = true;
             Close();

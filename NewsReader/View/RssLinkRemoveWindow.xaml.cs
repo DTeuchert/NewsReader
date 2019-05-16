@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using NewsReader.Util;
 using NewsReader.Models;
 
 namespace NewsReader.View
@@ -10,7 +9,7 @@ namespace NewsReader.View
     public partial class RssLinkRemoveWindow
     {
         public RssLink RemoveLink { get; set; }
-        public RssLinkCollection RSSLinkList { get; set; }
+        public RssLinkCollection RssLinks { get; set; }
 
         public RssLinkRemoveWindow()
         {
@@ -20,7 +19,7 @@ namespace NewsReader.View
 
         private void btnDialogRemove_Click(object sender, RoutedEventArgs e)
         {
-            RSSLinkList.Remove(RemoveLink);
+            RssLinks.Remove(RemoveLink);
 
             DialogResult = true;
             Close();

@@ -44,13 +44,13 @@
 
         <StackPanel Grid.Column="1" Grid.Row="1">
             <TextBlock Text="{util:Localization dialog_title}"/>
-            <TextBox Name="editLinkTextBox_Title"
+            <TextBox Name="TbRssTitle"
                  MinWidth="250"
                  Text="{Binding EditLink.Title, Mode=OneTime}"
                  ToolTipService.ToolTip="{util:Localization dialog_title_tooltip}"/>
 
             <TextBlock Text="{util:Localization dialog_link}"/>
-            <TextBox Name="editLinkTextBox_Link"
+            <TextBox Name="TbRssLink"
                  MinWidth="250"
                  Text="{Binding EditLink.Link, Mode=OneTime}"
                  ToolTipService.ToolTip="{util:Localization dialog_link_tooltip}"/>

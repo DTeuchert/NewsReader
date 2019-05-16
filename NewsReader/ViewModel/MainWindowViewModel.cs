@@ -97,7 +97,7 @@ namespace NewsReader.ViewModel
                     var changeRssLinkWindow = new RssLinkRemoveWindow
                     {
                         RemoveLink = SourceList_SelectedItem,
-                        RSSLinkList = SourceList
+                        RssLinks = SourceList
                     };
                     changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRssLinkWindow.ShowDialog();

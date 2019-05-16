@@ -14,15 +14,15 @@ namespace NewsReader.View
         public RssLinkAddWindow()
         {
             InitializeComponent(); 
-            newLinkTextBox_Titel.Focus();
+            TbRssTitle.Focus();
         }
 
         private void btnDialogAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (newLinkTextBox_Link.Text.Equals("")) return;
+            if (TbRssLink.Text.Equals("")) return;
             RSSLinkList.Add(new RssLink { 
-                Title = newLinkTextBox_Titel.Text,
-                Link = newLinkTextBox_Link.Text 
+                Title = TbRssTitle.Text,
+                Link = TbRssLink.Text 
             });
             
             DialogResult = true;
