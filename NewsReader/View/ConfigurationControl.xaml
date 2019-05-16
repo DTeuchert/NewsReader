@@ -173,31 +173,31 @@
             <StackPanel Grid.Row="1" Margin="10,0,0,0">
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_general}"
-                          IsChecked="{Binding TabVisibility_General, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.General, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_sport}"
-                          IsChecked="{Binding TabVisibility_Sport, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.Sport, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_technology}"
-                          IsChecked="{Binding TabVisibility_Technology, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.Technology, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_health}"
-                          IsChecked="{Binding TabVisibility_Health, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.Health, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_economy}"
-                          IsChecked="{Binding TabVisibility_Economy, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.Economy, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_career}"
-                          IsChecked="{Binding TabVisibility_Career, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.Career, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_international}"
-                          IsChecked="{Binding TabVisibility_International, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.International, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_politics}"
-                          IsChecked="{Binding TabVisibility_Politics, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.Politics, Mode=TwoWay}"/>
                 <CheckBox Margin="5"
                           Content="{util:Localization theme_cultural}"
-                          IsChecked="{Binding TabVisibility_Cultural, Mode=TwoWay}"/>
+                          IsChecked="{Binding CategoryVisibility.Cultural, Mode=TwoWay}"/>
             </StackPanel>
 
             

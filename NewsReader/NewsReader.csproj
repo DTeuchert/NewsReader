@@ -188,6 +188,7 @@
     <Compile Include="Service\ConfigurationService.cs" />
     <Compile Include="Util\TranslationSource.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CategoryVisibilityViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\BookmarkControl.xaml.cs">
       <DependentUpon>BookmarkControl.xaml</DependentUpon>

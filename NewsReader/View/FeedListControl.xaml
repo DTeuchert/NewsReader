@@ -61,7 +61,7 @@
         <TabControl Style="{StaticResource TabControlStyle}">
             <TabItem Header="{util:Localization theme_general}"
                      Style="{StaticResource TabItemStyle}"
-                     Visibility="{Binding TabVisibility_General, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.General, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -82,7 +82,7 @@
             </TabItem>
             <TabItem Header="{util:Localization theme_sport}"
                      Style="{StaticResource TabItemStyle}"
-                     Visibility="{Binding TabVisibility_Sport, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.Sport, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -101,7 +101,7 @@
             </TabItem>
             <TabItem Header="{util:Localization theme_technology}"
                      Style="{StaticResource TabItemStyle}"
-                     Visibility="{Binding TabVisibility_Technology, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.Technology, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -120,7 +120,7 @@
             </TabItem>
             <TabItem Header="{util:Localization theme_health}"
                      Style="{StaticResource TabItemStyle}"
-                     Visibility="{Binding TabVisibility_Health, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.Health, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -139,7 +139,7 @@
             </TabItem>
             <TabItem Header="{util:Localization theme_economy}"
                      Style="{StaticResource TabItemStyle}"
-                     Visibility="{Binding TabVisibility_Economy, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.Economy, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -158,7 +158,7 @@
             </TabItem>
             <TabItem Header="{util:Localization theme_career}"
                      Style="{StaticResource TabItemStyle}"
-                     Visibility="{Binding TabVisibility_Career, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.Career, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -177,7 +177,7 @@
             </TabItem>
             <TabItem Header="{util:Localization theme_international}"
                      Style="{StaticResource TabItemStyle}"
-                     Visibility="{Binding TabVisibility_International, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.International, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -196,7 +196,7 @@
             </TabItem>
             <TabItem Header="{util:Localization theme_politics}"
                      Style="{StaticResource TabItemStyle}"
-                         Visibility="{Binding TabVisibility_Politics, Converter={StaticResource BooleanVisibilityConverter}}">
+                         Visibility="{Binding CategoryVisibility.Politics, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -215,7 +215,7 @@
             </TabItem>
             <TabItem Header="{util:Localization theme_cultural}"
                      Style="{StaticResource TabItemStyle}"
-                     Visibility="{Binding TabVisibility_Cultural, Converter={StaticResource BooleanVisibilityConverter}}">
+                     Visibility="{Binding CategoryVisibility.Cultural, Converter={StaticResource BooleanVisibilityConverter}}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
