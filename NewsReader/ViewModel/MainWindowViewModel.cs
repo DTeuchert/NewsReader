@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Xml;
 using NewsReader.Models;
-using NewsReader.Service;
+using NewsReader.Services;
 using NewsReader.Util;
 using NewsReader.View;
 

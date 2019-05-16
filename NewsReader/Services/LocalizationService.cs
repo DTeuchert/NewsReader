@@ -1,6 +1,6 @@
 ﻿using NewsReader.Util;
 
-namespace NewsReader.Service
+namespace NewsReader.Services
 {
     internal class LocalizationService
     {

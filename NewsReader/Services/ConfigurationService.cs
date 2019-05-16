@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 using NewsReader.Models;
 using NewsReader.Util;
 
-namespace NewsReader.Service
+namespace NewsReader.Services
 {
     internal class ConfigurationService
     {

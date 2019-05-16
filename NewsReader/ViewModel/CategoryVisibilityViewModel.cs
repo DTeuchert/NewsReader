@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using NewsReader.Models;
-using NewsReader.Service;
+using NewsReader.Services;
 
 namespace NewsReader.ViewModel
 {

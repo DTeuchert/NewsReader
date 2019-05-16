@@ -1,4 +1,4 @@
-﻿using NewsReader.Service;
+﻿using NewsReader.Services;
 using System.Windows;
 
 namespace NewsReader
