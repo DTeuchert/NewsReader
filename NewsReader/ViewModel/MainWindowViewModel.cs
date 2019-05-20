@@ -84,7 +84,7 @@ namespace NewsReader.ViewModel
                 {
                     var changeRssLinkWindow = new RssLinkEditWindow
                     {
-                        EditLink = SourceList_SelectedItem
+                        EditLink = SelectedRssLink
                     };
                     changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRssLinkWindow.ShowDialog();
@@ -96,7 +96,7 @@ namespace NewsReader.ViewModel
                 {
                     var changeRssLinkWindow = new RssLinkRemoveWindow
                     {
-                        RemoveLink = SourceList_SelectedItem,
+                        RemoveLink = SelectedRssLink,
                         RssLinks = SourceList
                     };
                     changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;
@@ -107,7 +107,7 @@ namespace NewsReader.ViewModel
         public ICommand IsEnabledRssLinkCommand => _isEnabledRssLinkCommand ??
             (_isEnabledRssLinkCommand = new RelayCommand(() =>
                 {
-                    SourceList_SelectedItem.IsEnabled = !SourceList_SelectedItem.IsEnabled;
+                    SelectedRssLink.IsEnabled = !SelectedRssLink.IsEnabled;
                     ConfigurationService.Links = SourceList;
                 }));
 
@@ -140,14 +140,14 @@ namespace NewsReader.ViewModel
 
         public CategoryVisibilityViewModel CategoryVisibility { get; set; }
 
-        private RssLink _sourceList_SelectedItem;
-        public RssLink SourceList_SelectedItem
+        private RssLink _selectedRssLink;
+        public RssLink SelectedRssLink
         {
-            get => _sourceList_SelectedItem;
+            get => _selectedRssLink;
             set
             {
-                _sourceList_SelectedItem = value;
-                OnPropertyChanged(nameof(SourceList_SelectedItem));
+                _selectedRssLink = value;
+                OnPropertyChanged(nameof(SelectedRssLink));
             }
         }
 

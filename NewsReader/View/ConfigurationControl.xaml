@@ -78,7 +78,7 @@
                 <Button x:Name="BtnEdit"
                         Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_edit_rss_tooltip}"
-                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisibilityConverter}}"
+                        Visibility="{Binding SelectedRssLink, Converter={StaticResource SelectedItemVisibilityConverter}}"
                         Command="{Binding EditRssLinkCommand}">
                     <Viewbox>
 
@@ -104,7 +104,7 @@
                 <Button x:Name="BtnDelete"
                         Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_delete_rss_tooltip}"
-                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisibilityConverter}}"
+                        Visibility="{Binding SelectedRssLink, Converter={StaticResource SelectedItemVisibilityConverter}}"
                         Command="{Binding RemoveRssLinkCommand}">
                     <Viewbox>
                         <Grid>
@@ -129,7 +129,7 @@
                 <Button x:Name="BtnEnable"
                         Style="{StaticResource ConfigurationButtonStyle}"
                         ToolTipService.ToolTip="{util:Localization btn_enable_rss_tooltip}"
-                        Visibility="{Binding SourceList_SelectedItem, Converter={StaticResource SelectedItemVisibilityConverter}}"
+                        Visibility="{Binding SelectedRssLink, Converter={StaticResource SelectedItemVisibilityConverter}}"
                         Command="{Binding IsEnabledRssLinkCommand}">
                     <Viewbox>
                         <Grid>
@@ -155,7 +155,7 @@
 
             <ListBox Grid.Row="2" Background="Transparent" Margin="10,5"
                      Style="{StaticResource SourceListBoxStyle}"
-                     SelectedItem="{Binding SourceList_SelectedItem, Mode=TwoWay}" 
+                     SelectedItem="{Binding SelectedRssLink, Mode=TwoWay}" 
                      ItemsSource="{Binding SourceList}" />
         </Grid>
 
