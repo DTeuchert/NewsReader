@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.ServiceModel.Syndication;
 using System.Windows;
 using System.Windows.Input;
-using System.Xml;
 using NewsReader.Models;
 using NewsReader.Services;
 using NewsReader.Util;
@@ -14,8 +11,7 @@ namespace NewsReader.ViewModels
 {
     class MainWindowViewModel : BaseViewModel
     {
-        private readonly List<string> _guidList = new List<string>();
-
+        private readonly RssFeedService _rssFeedService;
         private bool _isConfigurationControlVisible;
         public bool IsConfigurationControlVisible
         {
@@ -158,6 +154,8 @@ namespace NewsReader.ViewModels
             BookmarkList = new RssFeedCollection();
             CategoryVisibility = new CategoryVisibilityViewModel();
 
+            _rssFeedService = new RssFeedService();
+
             SourceList = ConfigurationService.Links;
             UpdateFeedList();
         }
@@ -191,53 +189,7 @@ namespace NewsReader.ViewModels
 
             try
             {
-                using (var reader = XmlReader.Create(rssLink.Link))
-                {
-                    var feed = SyndicationFeed.Load(reader);
-
-                    foreach (var item in feed.Items)
-                    {
-                        if (_guidList.Any(x => x.Equals(item.Id)))
-                        {
-                            continue;
-                        }
-
-                        var news = new RssFeed
-                        {
-                            Guid = item.Id,
-                            Source = rssLink,
-                            Date = item.PublishDate.UtcDateTime,
-                            Title = item.Title.Text,
-                            Link = item.Links[0].Uri,
-                            Description = item.Summary?.Text ?? string.Empty,
-                            Thumbnail = (item.Links.Count >= 2) ? item.Links[1].Uri : null
-                        };
-
-                        news.Category.Add(RssCategory.General);
-
-                        if (item.Categories.Any(x =>
-                            x.Name.Equals("Sport") ||
-                            x.Name.Equals("Fußball"))) news.Category.Add(RssCategory.Sport);
-                        if (item.Categories.Any(x =>
-                            x.Name.Equals("Technology") ||
-                            x.Name.Equals("Digital"))) news.Category.Add(RssCategory.Technology);
-                        if (item.Categories.Any(x =>
-                            x.Name.Equals("Gesundheit"))) news.Category.Add(RssCategory.Health);
-                        if (item.Categories.Any(x =>
-                            x.Name.Equals("Wirtschaft"))) news.Category.Add(RssCategory.Economy);
-                        if (item.Categories.Any(x =>
-                            x.Name.Equals("Karriere"))) news.Category.Add(RssCategory.Career);
-                        if (item.Categories.Any(x =>
-                            x.Name.Equals("International"))) news.Category.Add(RssCategory.International);
-                        if (item.Categories.Any(x =>
-                            x.Name.Equals("Politik"))) news.Category.Add(RssCategory.Politics);
-                        if (item.Categories.Any(x =>
-                            x.Name.Equals("Kultur"))) news.Category.Add(RssCategory.Cultural);
-
-                        FeedList.Add(news);
-                        _guidList.Add(news.Guid);
-                    }
-                }
+                _rssFeedService.GetRssFeeds(rssLink).ForEach(f => FeedList.Add(f));               
             }
             catch (Exception)
             {

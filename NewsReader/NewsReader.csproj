@@ -181,6 +181,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.de-DE.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\RssFeedService.cs" />
     <Compile Include="Util\DictionaryItem.cs" />
     <Compile Include="Util\LocalizationExtension.cs" />
     <Compile Include="Services\LocalizationService.cs" />
