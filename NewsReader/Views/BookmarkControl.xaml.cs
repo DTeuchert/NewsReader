@@ -1,4 +1,4 @@
-﻿namespace NewsReader.View
+﻿namespace NewsReader.Views
 {
     /// <summary>
     /// Interaktionslogik für BookmarkControl.xaml

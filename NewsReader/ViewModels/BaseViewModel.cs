@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace NewsReader.ViewModel
+namespace NewsReader.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

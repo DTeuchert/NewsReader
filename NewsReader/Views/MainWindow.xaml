@@ -1,7 +1,7 @@
-﻿<Window x:Class="NewsReader.View.MainWindow"
+﻿<Window x:Class="NewsReader.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:view="clr-namespace:NewsReader.View"
+        xmlns:views="clr-namespace:NewsReader.Views"
         xmlns:util="clr-namespace:NewsReader.Util"
         Background="{StaticResource ApplicationBackgroundColor}"
         WindowStyle="SingleBorderWindow"
@@ -62,8 +62,8 @@
                 <Label Grid.Row="0" 
                        Foreground="{StaticResource ApplicationForgroundColor}" FontSize="21"
                        Content="{util:Localization news}"/>
-                
-                <view:FeedListControl Grid.Row="1"/>
+
+                <views:FeedListControl Grid.Row="1"/>
                 
                 <Label Grid.Row="2">
                     <TextBlock Foreground="{StaticResource ApplicationForgroundLightColor}" FontSize="11">
@@ -74,7 +74,7 @@
             </Grid>
             <Grid Panel.ZIndex="1"  
                   Visibility="{Binding IsBookmarkControlVisible, Converter={StaticResource BooleanVisibilityConverter}}">
-                <view:BookmarkControl Grid.Column="1"/>
+                <views:BookmarkControl Grid.Column="1"/>
             </Grid>
             <Grid Panel.ZIndex="2"  
                   Visibility="{Binding IsConfigurationControlVisible, Converter={StaticResource BooleanVisibilityConverter}}">
@@ -82,8 +82,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                    
-                <view:ConfigurationControl Grid.Column="1"/>
+
+                <views:ConfigurationControl Grid.Column="1"/>
                 <GridSplitter Width="3" Grid.Column="1" HorizontalAlignment="Left"/>
             </Grid>
         </Grid>

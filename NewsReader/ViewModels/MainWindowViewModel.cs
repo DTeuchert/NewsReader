@@ -8,9 +8,9 @@ using System.Xml;
 using NewsReader.Models;
 using NewsReader.Services;
 using NewsReader.Util;
-using NewsReader.View;
+using NewsReader.Views;
 
-namespace NewsReader.ViewModel
+namespace NewsReader.ViewModels
 {
     class MainWindowViewModel : BaseViewModel
     {
@@ -72,7 +72,7 @@ namespace NewsReader.ViewModel
                 {
                     var changeRssLinkWindow = new RssLinkAddWindow
                     {
-                        RSSLinkList = SourceList
+                        RssLinks = SourceList
                     };
                     changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRssLinkWindow.ShowDialog();
@@ -84,7 +84,7 @@ namespace NewsReader.ViewModel
                 {
                     var changeRssLinkWindow = new RssLinkEditWindow
                     {
-                        EditLink = SelectedRssLink
+                        RssLink = SelectedRssLink
                     };
                     changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;
                     changeRssLinkWindow.ShowDialog();
@@ -96,7 +96,7 @@ namespace NewsReader.ViewModel
                 {
                     var changeRssLinkWindow = new RssLinkRemoveWindow
                     {
-                        RemoveLink = SelectedRssLink,
+                        RssLink = SelectedRssLink,
                         RssLinks = SourceList
                     };
                     changeRssLinkWindow.Closed += OnClose_RSSLinkWindow;

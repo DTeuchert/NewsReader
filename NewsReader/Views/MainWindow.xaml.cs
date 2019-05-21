@@ -1,16 +1,16 @@
-﻿namespace NewsReader.View
+﻿namespace NewsReader.Views
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
-        private readonly ViewModel.MainWindowViewModel mainViewModel = new ViewModel.MainWindowViewModel();
+        private readonly ViewModels.MainWindowViewModel _mainViewModel = new ViewModels.MainWindowViewModel();
 
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = mainViewModel;
+            DataContext = _mainViewModel;
         }
     }
 }

@@ -122,31 +122,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\BookmarkControl.xaml">
+    <Page Include="Views\BookmarkControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FeedListControl.xaml">
+    <Page Include="Views\FeedListControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\RssLinkEditWindow.xaml">
+    <Page Include="Views\RssLinkEditWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\RssLinkRemoveWindow.xaml">
+    <Page Include="Views\RssLinkRemoveWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\RssLinkAddWindow.xaml">
+    <Page Include="Views\RssLinkAddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ConfigurationControl.xaml">
+    <Page Include="Views\ConfigurationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -187,28 +187,28 @@
     <Compile Include="Util\RelayCommand.cs" />
     <Compile Include="Services\ConfigurationService.cs" />
     <Compile Include="Util\TranslationSource.cs" />
-    <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\CategoryVisibilityViewModel.cs" />
-    <Compile Include="ViewModel\MainWindowViewModel.cs" />
-    <Compile Include="View\BookmarkControl.xaml.cs">
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\CategoryVisibilityViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\BookmarkControl.xaml.cs">
       <DependentUpon>BookmarkControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\FeedListControl.xaml.cs">
+    <Compile Include="Views\FeedListControl.xaml.cs">
       <DependentUpon>FeedListControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RssLinkEditWindow.xaml.cs">
+    <Compile Include="Views\RssLinkEditWindow.xaml.cs">
       <DependentUpon>RssLinkEditWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RssLinkRemoveWindow.xaml.cs">
+    <Compile Include="Views\RssLinkRemoveWindow.xaml.cs">
       <DependentUpon>RssLinkRemoveWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RssLinkAddWindow.xaml.cs">
+    <Compile Include="Views\RssLinkAddWindow.xaml.cs">
       <DependentUpon>RssLinkAddWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ConfigurationControl.xaml.cs">
+    <Compile Include="Views\ConfigurationControl.xaml.cs">
       <DependentUpon>ConfigurationControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>

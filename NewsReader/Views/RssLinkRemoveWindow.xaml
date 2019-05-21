@@ -1,4 +1,4 @@
-﻿<Window x:Class="NewsReader.View.RssLinkRemoveWindow"
+﻿<Window x:Class="NewsReader.Views.RssLinkRemoveWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:util="clr-namespace:NewsReader.Util"
@@ -39,7 +39,7 @@
             <TextBlock Foreground="{StaticResource ApplicationForgroundColor}">
                 <Run Text="{util:Localization dialog_delete_text}"/>
                 <LineBreak/>
-                <Run Text="{Binding RemoveLink.Link}"/>
+                <Run Text="{Binding RssLink.Link}"/>
             </TextBlock>
         </Label>
 

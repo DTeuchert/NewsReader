@@ -1,14 +1,14 @@
 ﻿using System.Windows;
 using NewsReader.Models;
 
-namespace NewsReader.View
+namespace NewsReader.Views
 {
     /// <summary>
     /// Interaktionslogik für RssLinkRemoveWindow.xaml
     /// </summary>
     public partial class RssLinkEditWindow
     {
-        public RssLink EditLink { get; set; }
+        public RssLink RssLink { get; set; }
 
         public RssLinkEditWindow()
         {
@@ -20,9 +20,9 @@ namespace NewsReader.View
         private void btnDialogEdit_Click(object sender, RoutedEventArgs e)
         {
             if (TbRssLink.Text.Equals("") ||
-                (TbRssTitle.Text.Equals(EditLink.Title) && TbRssLink.Text.Equals(EditLink.Link))) return;
-            EditLink.Title = TbRssTitle.Text;
-            EditLink.Link = TbRssLink.Text;
+                (TbRssTitle.Text.Equals(RssLink.Title) && TbRssLink.Text.Equals(RssLink.Link))) return;
+            RssLink.Title = TbRssTitle.Text;
+            RssLink.Link = TbRssLink.Text;
 
             DialogResult = true;
             Close();

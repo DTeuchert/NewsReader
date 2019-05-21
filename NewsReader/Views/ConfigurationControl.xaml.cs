@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace NewsReader.View
+namespace NewsReader.Views
 {
     /// <summary>
     /// Interaktionslogik für ConfigurationControl.xaml

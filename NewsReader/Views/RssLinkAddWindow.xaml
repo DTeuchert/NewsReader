@@ -1,4 +1,4 @@
-﻿<Window x:Class="NewsReader.View.RssLinkEditWindow"
+﻿<Window x:Class="NewsReader.Views.RssLinkAddWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:util="clr-namespace:NewsReader.Util"
@@ -16,7 +16,6 @@
             </DrawingImage.Drawing>
         </DrawingImage>
     </Window.Icon>
-
     <Grid Margin="15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -35,35 +34,34 @@
                   Stretch="Uniform" Width="48" Height="48" RenderTransformOrigin="0.5,0.5" 
                   Fill="{StaticResource IconColor}" />
         </Viewbox>
-
+        
         <Label Grid.Column="1" Grid.Row="0"
                Foreground="{StaticResource ApplicationForgroundColor}"
-               Content="{util:Localization dialog_edit_text}" />
-        
-        
+               Content="{util:Localization dialog_add_text}" />
 
         <StackPanel Grid.Column="1" Grid.Row="1">
             <TextBlock Text="{util:Localization dialog_title}"/>
-            <TextBox Name="TbRssTitle"
+            <TextBox 
+                Name="TbRssTitle"
                  MinWidth="250"
-                 Text="{Binding EditLink.Title, Mode=OneTime}"
                  ToolTipService.ToolTip="{util:Localization dialog_title_tooltip}"/>
 
             <TextBlock Text="{util:Localization dialog_link}"/>
             <TextBox Name="TbRssLink"
                  MinWidth="250"
-                 Text="{Binding EditLink.Link, Mode=OneTime}"
                  ToolTipService.ToolTip="{util:Localization dialog_link_tooltip}"/>
         </StackPanel>
+        
+        
 
         <WrapPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
                    Margin="0,15,0,0"
                    HorizontalAlignment="Right">
             <Button Style="{StaticResource WindowButtonStyle}"
                     IsDefault="True"
-                    Content="{util:Localization btn_edit_rss}"
-                    ToolTipService.ToolTip="{util:Localization btn_edit_rss_tooltip}"
-                    Click="btnDialogEdit_Click"/>
+                    Content="{util:Localization btn_add_rss}"
+                    ToolTipService.ToolTip="{util:Localization btn_add_rss_tooltip}"
+                    Click="btnDialogAdd_Click"/>
             <Button Style="{StaticResource WindowButtonStyle}"
                     IsCancel="True"
                     Content="{util:Localization btn_cancel}"

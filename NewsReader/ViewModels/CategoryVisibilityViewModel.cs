@@ -2,7 +2,7 @@
 using NewsReader.Models;
 using NewsReader.Services;
 
-namespace NewsReader.ViewModel
+namespace NewsReader.ViewModels
 {
     internal class CategoryVisibilityViewModel : BaseViewModel
     {
