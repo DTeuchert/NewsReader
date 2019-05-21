@@ -5,6 +5,8 @@
         <Setter Property="Background" Value="{DynamicResource IconColor}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="MinWidth" Value="60"/>
+        <Setter Property="ForceCursor" Value="True"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Margin" Value="5,2"/>
         <Setter Property="Padding" Value="10,2"/>
         <Setter Property="Template">
@@ -29,6 +31,8 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource IconColor}" />
         <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="ForceCursor" Value="True"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -60,6 +64,8 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource IconColor}" />
         <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="ForceCursor" Value="True"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Width" Value="32"/>
@@ -147,6 +153,8 @@
 
     <Style x:Key="ConfigurationButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Width" Value="32" />
+        <Setter Property="ForceCursor" Value="True"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Margin" Value="3" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
