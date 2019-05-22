@@ -123,7 +123,7 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <DataTrigger Binding="{Binding Path=IsRefreshing}" Value="true">
+            <DataTrigger Binding="{Binding Path=IsRefreshing}" Value="True">
                 <DataTrigger.EnterActions>
                     <BeginStoryboard>
                         <Storyboard>
@@ -131,19 +131,17 @@
                                              From="0"
                                              To="360"
                                              Duration="0:0:3"
-                                             RepeatBehavior="Forever"
-                                             />
+                                             RepeatBehavior="Forever" />
                         </Storyboard>
                     </BeginStoryboard>
                 </DataTrigger.EnterActions>
                 <DataTrigger.ExitActions>
                     <BeginStoryboard>
-                        <Storyboard FillBehavior="Stop">
-                            <DoubleAnimation 
-                                        Storyboard.TargetProperty="(LayoutTransform).(RotateTransform.Angle)"
-                                        To="0"
-                                        Duration="0:0:0"
-                                        />
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(LayoutTransform).(RotateTransform.Angle)"
+                                             From="0"
+                                             To="360"
+                                             Duration="0:0:3" />
                         </Storyboard>
                     </BeginStoryboard>
                 </DataTrigger.ExitActions>

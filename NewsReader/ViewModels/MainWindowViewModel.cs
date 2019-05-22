@@ -189,7 +189,8 @@ namespace NewsReader.ViewModels
 
             try
             {
-                _rssFeedService.GetRssFeeds(rssLink).ForEach(f => FeedList.Add(f));               
+                _rssFeedService.GetRssFeeds(rssLink).ForEach(f => FeedList.Add(f));
+                OnPropertyChanged(nameof(FeedList));
             }
             catch (Exception)
             {
