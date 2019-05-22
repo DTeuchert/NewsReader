@@ -8,9 +8,34 @@ using NewsReader.Util;
 
 namespace NewsReader.Services
 {
-    internal class ConfigurationService
+    public class ConfigurationService
     {
         private const string ConfigurationFile = @"Config.xml";
+        private static ConfigurationModel Default =>
+            new ConfigurationModel
+            {
+                LanguageCode = "de-DE",
+                Links = new RssLinkCollection
+                {
+                    new RssLink
+                    {
+                        Title = "Welt",
+                        Link = "https://www.welt.de/feeds/topnews.rss"
+                    }
+                },
+                VisibleCategories = new List<DictionaryItem>
+                {
+                    new DictionaryItem{ Id = RssCategory.General, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Sport, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Technology, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Health, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Economy, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Career, Value = true },
+                    new DictionaryItem{ Id = RssCategory.International, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Politics, Value = true },
+                    new DictionaryItem{ Id = RssCategory.Cultural, Value = true },
+                }
+            };
 
         private static void SaveConfiguration(ConfigurationModel configuration)
         {
@@ -89,30 +114,5 @@ namespace NewsReader.Services
             }
         }
 
-        private static ConfigurationModel Default =>
-            new ConfigurationModel
-            {
-                LanguageCode = "de-DE",
-                Links = new RssLinkCollection
-                {
-                    new RssLink
-                    {
-                        Title = "Welt",
-                        Link = "https://www.welt.de/feeds/topnews.rss"
-                    }
-                },
-                VisibleCategories = new List<DictionaryItem>
-                {
-                    new DictionaryItem{ Id = RssCategory.General, Value = true },
-                    new DictionaryItem{ Id = RssCategory.Sport, Value = true },
-                    new DictionaryItem{ Id = RssCategory.Technology, Value = true },
-                    new DictionaryItem{ Id = RssCategory.Health, Value = true },
-                    new DictionaryItem{ Id = RssCategory.Economy, Value = true },
-                    new DictionaryItem{ Id = RssCategory.Career, Value = true },
-                    new DictionaryItem{ Id = RssCategory.International, Value = true },
-                    new DictionaryItem{ Id = RssCategory.Politics, Value = true },
-                    new DictionaryItem{ Id = RssCategory.Cultural, Value = true },
-                }
-            };
     }
 }
